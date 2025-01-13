@@ -23,15 +23,24 @@
 
 
        {{ vite src="resources/js/site.js|resources/css/site.css" }}
+
+       <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
       
       <styl
    </head>
    <body class="bg-main-bg">
       {{partial:partials/header}}
       <!-- header End -->
-      {{partial:partials/stories}}
-      {{partial:partials/listings}}
-      {{partial:partials/articles}}
+      <div x-data="{ showProfile: false }">
+         <div id="listing" x-show="!showProfile" style="display: block;">
+            {{partial:partials/stories}}
+            {{partial:partials/listings}}
+            {{partial:partials/articles}}
+         </div>
+         <div id="profile" x-show="showProfile" style="display: none;">
+            {{partial:partials/profile}}
+         </div>
+      </div>
       <div class="divider mx-auto d-lg-none border-top border-dark-gray-1 my-5 d-md-block d-none w-100"></div>
       {{partial:partials/footer}}
       {{partial:partials/mobile-nav}}
