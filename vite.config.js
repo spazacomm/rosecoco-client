@@ -18,4 +18,9 @@ export default defineConfig({
         }),
         // vue2(),
     ],
+    resolve: {
+        alias: {
+            '@js': '/public/assets/js',
+        },
+    },
 });

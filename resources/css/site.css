@@ -1,5 +1,8 @@
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
-
-/* This is all you. */
+@import "/public/assets/css/main.min.css";
+@import "/public/assets/css/fonts.min.css";
+@import "/public/assets/css/fancybox.css";
+@import "/public/assets/css/snapgram.min.css";
+@import "/public/assets/css/zuck.min.css";

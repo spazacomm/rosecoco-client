@@ -1,15 +1,274 @@
-<!doctype html>
+
+<!DOCTYPE html>
 <html lang="{{ site:short_locale }}">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>{{ title ?? site:name }}</title>
-        {{ vite src="resources/js/site.js|resources/css/site.css" }}
-    </head>
-    <body class="bg-gray-100 font-sans leading-normal text-gray-800">
-        <div class="mx-auto px-2 lg:min-h-screen flex flex-col items-center justify-center">
-            {{ template_content }}
-        </div>
-    </body>
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>{{ title ?? site:name }}</title>
+      <!-- <meta name="description" content="Browse London escorts only available through Crush! Explore 100s of photos and videos of beautiful escorts providing 24/7 citywide incall and outcall services.">
+      <meta name="keywords" content="">
+      <meta name="author" content="Crush">
+      <link rel="preload" href="https://www.crushescorts.com/frontend/images/banner-d.webp" as="image">
+      <link rel="preload" href="https://www.crushescorts.com/frontend/images/banner-m.webp" as="image">
+      <link rel="apple-touch-icon" sizes="180x180" href="https://www.crushescorts.com/frontend/apple-touch-icon.png">
+      <link rel="icon" type="image/png" sizes="32x32" href="https://www.crushescorts.com/frontend/favicon-32x32.png">
+      <link rel="icon" type="image/png" sizes="16x16" href="https://www.crushescorts.com/frontend/favicon-16x16.png">
+      <link rel="manifest" href="https://www.crushescorts.com/manifest.json">
+      <link rel="mask-icon" href="https://www.crushescorts.com/frontend/safari-pinned-tab.svg" color="#000000">
+      <meta name="msapplication-TileColor" content="#000000">
+      <meta name="csrf-token" content="3uMjuQ8rehG8Qje8GXQiYCMMETYR6DMz7Wxwq7xt">
+      <meta name="theme-color" content="#000000"> -->
+      <!-- For the home page, specify the full URL explicitly if needed -->
+      <!-- <link rel="canonical" href="https://www.crushescorts.com" /> -->
+
+
+       {{ vite src="resources/js/site.js|resources/css/site.css" }}
+      
+      <styl
+   </head>
+   <body class="bg-main-bg">
+      {{partial:partials/header}}
+      <!-- header End -->
+      {{partial:partials/stories}}
+      {{partial:partials/listings}}
+      {{partial:partials/articles}}
+      <div class="divider mx-auto d-lg-none border-top border-dark-gray-1 my-5 d-md-block d-none w-100"></div>
+      {{partial:partials/footer}}
+      {{partial:partials/mobile-nav}}
+     
+      <!-- <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script> -->
+      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"></script>
+      <!-- <script async src="https://www.crushescorts.com/frontend/js/bootstrap.bundle.js" crossorigin="anonymous"></script>
+      <script defer src="https://www.crushescorts.com/frontend/js/splide.min.js" ></script>
+      <script defer src="https://www.crushescorts.com/frontend/js/fancybox.umd.js" defer></script>
+      <script defer src="https://www.crushescorts.com/assets/libs/flatpickr/dist/flatpickr.min.js" defer></script>
+      <script defer src="https://www.crushescorts.com/frontend/js/app.js" ></script>
+      <script src="https://www.crushescorts.com/frontend/js/zuck.min.js" defer></script> -->
+
+      <script src="https://cdn.jsdelivr.net/npm/zuck.js@latest/dist/zuck.min.js"></script>
+    
+     
+      <!-- Register the Service Worker -->
+      <script>
+         if ('serviceWorker' in navigator) {
+             navigator.serviceWorker.register('/sw.js').then(function(registration) {
+                 console.log('Service Worker registered with scope:', registration.scope);
+             }).catch(function(error) {
+                 console.log('Service Worker registration failed:', error);
+             });
+         }
+      </script>
+      <script>
+         const csrfToken = $('meta[name="csrf-token"]').attr('content');
+         $.ajaxSetup({
+             headers: {
+                 'X-CSRF-TOKEN': csrfToken
+             }
+         });
+      </script>
+      <script>
+         $(document).ready(function() {
+             $('.filter-booking-type, .filter-rate').on('click',function(e){
+                 e.preventDefault();
+                 $(this).toggleClass('bg-primary');
+         
+                 let type = $(this).data('type');
+                 let prices = [];
+                 $('.filter-rate.bg-primary').each(function() {
+                     let price = $(this).data('price');
+                     prices.push(price);
+                 });
+                 let url = $(this).data('url');
+                 $.ajax({
+                     url: 'https://www.crushescorts.com/filter-staff-gallery',
+                     method: 'POST',
+                     data: {prices: prices},
+                     success: function(response) {
+                         $('#profile-gallery').html('');
+                         $('#profile-gallery').html(response.html);
+                         $('.splide').each(function() {
+                             new Splide(this, {
+                                 type: 'loop',
+                                 perPage: 1,
+                                 autoplay: true,
+                                 pagination: false,
+                                 arrows: true,
+                             }).mount();
+                         });
+                         $('#filtermodal .modal-footer span').text('Show ' + response.count + ' profiles');
+                         $('.totalProfileCount').text( response.count + ' Live Profiles');
+                     },
+                     error(xhr) {
+                         console.error(xhr.responseText);
+                     }
+                 });
+             });
+             // Handle filter selection and send AJAX request
+             $('input[name="sortby"], input[name="colour"], input[name="nationality"], .filterhaircolor, .filternationality, sortby').on('change', function() {
+                 var filters = {
+                     sortby: $('input[name="sortby"]:checked').val(),
+                     colour: $('input[name="colour[]"]:checked').map(function() { return this.value; }).get(),
+                     nationality: $('input[name="nationality[]"]:checked').map(function() { return this.value; }).get(),
+                 };
+                 console.log(filters);
+                 $.ajax({
+                     url: 'https://www.crushescorts.com/filter-staff-gallery',  // Define route to handle filters
+                     method: 'POST',
+                     data: filters,
+                     success: function(response) {
+                         $('#profile-gallery').html('');
+                         $('#profile-gallery').html(response.html);
+                         $('.splide').each(function() {
+                             new Splide(this, {
+                                 type: 'loop',
+                                 perPage: 1,
+                                 autoplay: true,
+                                 pagination: false,
+                                 arrows: true,
+                             }).mount();
+                         });
+                         $('#filtermodal .modal-footer span').text('Show ' + response.count + ' profiles');
+                         $('.totalProfileCount').text( response.count + ' Live Profiles');
+                     },
+                     error: function(xhr) {
+                         console.error(xhr.responseText);
+                     }
+                 });
+             });
+         
+             // Handle the "Show X profiles" button click
+             $('.modal-footer span').on('click', function() {
+                 let prices = [];
+                 $('.filter-rate.bg-main-bg').each(function() {
+                     let price = $(this).data('price');
+                     prices.push(price);
+                 });
+         
+                 var filters = {
+                     sortby: $('input[name="sortby"]:checked').val(),
+                     colour: $('input[name="colour[]"]:checked').map(function() { return this.value; }).get(),
+                     nationality: $('input[name="nationality[]"]:checked').map(function() { return this.value; }).get(),
+                     prices: prices,
+                 };
+         
+                 $.ajax({
+                     url: 'https://www.crushescorts.com/filter-staff-gallery',
+                     method: 'POST',
+                     data: filters,
+                     success: function(response) {
+                         $('#profile-gallery').html('');
+                         // $('#profile-gallery').html(response.html);
+                         $('#filtermodal').modal('hide');
+                         $('.splide').each(function() {
+                             new Splide(this, {
+                                 type: 'loop',
+                                 perPage: 1,
+                                 autoplay: true,
+                                 pagination: false,
+                                 arrows: true,
+                             }).mount();
+                         });
+                     },
+                     error: function(xhr) {
+                         console.error(xhr.responseText);
+                     }
+                 });
+             });
+         
+             $('.clear_filter').on('click',function(e){
+                 $('.filter-rate').removeClass('bg-primary');
+                 // Clear radio button for "sortby"
+                 $('input[name="sortby"]').prop('checked', false);
+         
+                 // Clear checkboxes for "colour"
+                 $('input[name="colour[]"]').prop('checked', false);
+         
+                 // Clear checkboxes for "nationality"
+                 $('input[name="nationality[]"]').prop('checked', false);
+                 let prices = [];
+                 $('.filter-rate.bg-main-bg').each(function() {
+                     let price = $(this).data('price');
+                     prices.push(price);
+                 });
+                 $.ajax({
+                     url: 'https://www.crushescorts.com/filter-staff-gallery',
+                     method: 'POST',
+                     data: {prices: prices},
+                     success: function(response) {
+                         $('#profile-gallery').html('');
+                         $('#profile-gallery').html(response.html);
+                         $('.splide').each(function() {
+                             new Splide(this, {
+                                 type: 'loop',
+                                 perPage: 1,
+                                 autoplay: true,
+                                 pagination: false,
+                                 arrows: true,
+                             }).mount();
+                         });
+                         $('#filtermodal .modal-footer span').text('Show ' + response.count + ' Profiles');
+                         $('.totalProfileCount').text( response.count + ' Live Profiles');
+                     },
+                     error(xhr) {
+                         console.error(xhr.responseText);
+                     }
+                 });
+             });
+         });
+      </script>
+      <script>
+         $(document).ready(function () {
+             $.ajax({
+                 url: 'http://127.0.0.1:8001/stories.json',
+                 type: 'GET',
+                 success: function (data) {
+                     console.log('Stories:', data);
+                     if(data.length == 0) {
+                         $('.gallery-story-wrap').addClass('d-none');
+                     }else{
+                         $('.gallery-story-wrap').removeClass('d-none');
+                         var stories = new Zuck(document.querySelector('#stories'), {
+                             backNative: true,
+                             previousTap: true,
+                             skin: 'Snapgram',
+                             avatars: true,
+                             list: false,
+                             autoFullScreen: false,
+                             cubeEffect: true,
+                             paginationArrows: false,
+                             localStorage: true,
+                             stories: data
+                         });
+                     }
+         
+         
+                 },
+                 error: function (xhr, status, error) {
+                     console.error('Error fetching videos:', error);
+                 }
+             });
+         });
+      </script>
+      <script>
+         ((doc) => {
+             const myDoc = doc;
+             // let banner = myDoc.querySelector('.banner-home');
+             // let dImg = banner.getAttribute('data-dimg');
+             // let mImg = banner.getAttribute('data-mImg');
+             // let styles = `--dImg:url(${dImg}); --mImg:url(${mImg})`;
+             // setTimeout(() => {
+             //     banner.setAttribute('style', styles);
+             // }, 2000);
+         
+             if (window.innerWidth > 768) {
+                 const link = document.createElement('link');
+                 link.rel = 'preload';
+                 link.href = 'https://www.crushescorts.com/frontend/images/banner-d.webp';
+                 link.as = 'image';
+                 document.head.appendChild(link);
+             }
+         })(document)
+      </script>
+   </body>
 </html>
