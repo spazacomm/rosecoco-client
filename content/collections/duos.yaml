@@ -1,0 +1,6 @@
+title: Duos
+template: duos/show
+revisions: false
+date_behavior:
+  past: public
+  future: private

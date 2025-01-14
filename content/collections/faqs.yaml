@@ -1,0 +1,6 @@
+title: FAQS
+template: faqs/show
+revisions: false
+date_behavior:
+  past: public
+  future: private

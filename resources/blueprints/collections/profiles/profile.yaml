@@ -1,0 +1,157 @@
+title: Profile
+tabs:
+  main:
+    display: Main
+    sections:
+      -
+        fields:
+          -
+            handle: title
+            field:
+              type: text
+              required: true
+              validate:
+                - required
+          -
+            handle: profile_image
+            field:
+              max_files: 1
+              container: assets
+              type: assets
+              display: 'Profile image'
+          -
+            handle: bio
+            field:
+              type: markdown
+              display: Bio
+              localizable: true
+          -
+            handle: phone_number
+            field:
+              input_type: tel
+              type: text
+              display: 'Phone Number'
+              width: 50
+          -
+            handle: whatsapp_number
+            field:
+              input_type: tel
+              type: text
+              display: 'Whatsapp Number'
+              width: 50
+          -
+            handle: gender
+            field:
+              type: terms
+              taxonomies:
+                - gender
+              display: Gender
+              mode: select
+              width: 50
+          -
+            handle: orientation
+            field:
+              type: terms
+              taxonomies:
+                - orientation
+              display: Orientation
+              mode: select
+              width: 50
+      -
+        display: Atributes
+        instructions: 'Personal attributes'
+        fields:
+          -
+            handle: attributes
+            field:
+              mode: keyed
+              keys:
+                -
+                  key: age
+                  value: Age
+                -
+                  key: body-type
+                  value: 'body Type'
+              type: array
+              display: Attributes
+      -
+        display: Gallery
+        fields:
+          -
+            handle: profile_images
+            field:
+              type: replicator
+              display: 'Profile images'
+              sets:
+                gallery:
+                  display: Gallery
+                  sets:
+                    new_image:
+                      display: 'New Image'
+                      fields:
+                        -
+                          handle: gallery_image
+                          field:
+                            max_files: 1
+                            container: assets
+                            type: assets
+                            display: 'Gallery Image'
+      -
+        display: 'Catergories section'
+        fields:
+          -
+            handle: categories
+            field:
+              type: terms
+              taxonomies:
+                - categories
+              display: Categories
+              mode: select
+      -
+        display: 'Locations section'
+        fields:
+          -
+            handle: locations
+            field:
+              type: terms
+              taxonomies:
+                - locations
+              display: Locations
+              mode: select
+      -
+        display: 'Services Section'
+        fields:
+          -
+            handle: services
+            field:
+              type: terms
+              taxonomies:
+                - services
+              display: Services
+              mode: select
+      -
+        display: 'Rates section'
+  sidebar:
+    display: Sidebar
+    sections:
+      -
+        fields:
+          -
+            handle: slug
+            field:
+              type: slug
+              localizable: true
+              validate: 'max:200'
+          -
+            handle: featured
+            field:
+              type: toggle
+              display: featured
+          -
+            handle: tags
+            field:
+              type: terms
+              taxonomies:
+                - tags
+              display: Tags
+              mode: select
