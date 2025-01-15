@@ -54,10 +54,11 @@
        <script>
          $(document).ready(function () {
              $.ajax({
-                 url: '/stories.json',
+                 url: '/build/stories.json',
                  type: 'GET',
                  success: function (data) {
                      console.log('Stories:', data);
+
                      if(data.length == 0) {
                          $('.gallery-story-wrap').addClass('d-none');
                      }else{
@@ -83,6 +84,10 @@
                  }
              });
          });
+
+
+
+
       </script> 
 
      

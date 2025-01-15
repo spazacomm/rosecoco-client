@@ -40,7 +40,7 @@ return [
 
     'copy' => [
         public_path('build') => 'build',
-        public_path('stories.json') => 'build/stories.json',
+        public_path('build/stories.json') => 'build/stories.json',
     ],
 
     'symlinks' => [
