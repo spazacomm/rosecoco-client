@@ -57,6 +57,18 @@ tabs:
               display: Orientation
               mode: select
               width: 50
+          -
+            handle: incall
+            field:
+              type: toggle
+              display: incall
+              width: 50
+          -
+            handle: outcall
+            field:
+              type: toggle
+              display: outcall
+              width: 50
       -
         display: Atributes
         instructions: 'Personal attributes'
@@ -80,22 +92,9 @@ tabs:
           -
             handle: profile_images
             field:
-              type: replicator
-              display: 'Profile images'
-              sets:
-                gallery:
-                  display: Gallery
-                  sets:
-                    new_image:
-                      display: 'New Image'
-                      fields:
-                        -
-                          handle: gallery_image
-                          field:
-                            max_files: 1
-                            container: assets
-                            type: assets
-                            display: 'Gallery Image'
+              container: assets
+              type: assets
+              display: 'Profile Images'
       -
         display: 'Catergories section'
         fields:
@@ -147,6 +146,11 @@ tabs:
             field:
               type: toggle
               display: featured
+          -
+            handle: recommended
+            field:
+              type: toggle
+              display: recommended
           -
             handle: tags
             field:

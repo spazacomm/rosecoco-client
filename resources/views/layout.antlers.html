@@ -27,7 +27,17 @@
       <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"></script>
      
-      <script src="https://cdn.jsdelivr.net/npm/zuck.js@latest/dist/zuck.min.js"></script>
+      <!-- <script src="https://cdn.jsdelivr.net/npm/zuck.js@latest/dist/zuck.min.js"></script> -->
+
+<!--       <script async src="/assets/js/bootstrap.bundle.js" crossorigin="anonymous"></script>
+
+<script defer src="/assets/js/fancybox.umd.js" defer></script>
+<script defer src="/assets/js/flatpickr.min.js" defer></script>
+
+<script src="/assets/js/zuck.min.js" defer></script> -->
+
+<script defer src="/assets/js/splide.min.js" ></script>
+<script src="/assets/js/zuck.min.js" defer></script>
     
      
 
@@ -41,10 +51,10 @@
          });
       </script>
      
-      <script>
+       <script>
          $(document).ready(function () {
              $.ajax({
-                 url: 'http://127.0.0.1:8001/stories.json',
+                 url: 'http://127.0.0.1:8000/stories.json',
                  type: 'GET',
                  success: function (data) {
                      console.log('Stories:', data);
@@ -73,7 +83,9 @@
                  }
              });
          });
-      </script>
+      </script> 
+
+     
       <script>
          ((doc) => {
              const myDoc = doc;
@@ -88,7 +100,7 @@
              if (window.innerWidth > 768) {
                  const link = document.createElement('link');
                  link.rel = 'preload';
-                 link.href = 'https://www.crushescorts.com/frontend/images/banner-d.webp';
+                 link.href = '/assets/images/banner-d.webp';
                  link.as = 'image';
                  document.head.appendChild(link);
              }

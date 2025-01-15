@@ -15,6 +15,7 @@
         "vite": "^6.0"
     },
     "dependencies": {
+        "@splidejs/splide": "^4.1.4",
         "zuck.js": "^2.1.0"
     }
 }

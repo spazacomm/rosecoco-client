@@ -31,126 +31,32 @@
                   </div>
                   <div class="modal-body offcanvas-body">
                      <div class="filter-col mb-4 pb-4 border-bottom border-dark-gray-1">
-                        <div class="fonts-sub fs-6 f300 text-black-2 mb-3">Sort</div>
+                        <div class="fonts-sub fs-6 f300 text-black-2 mb-3">Orientation</div>
                         <ul class="sort-filter-list filter-list">
+                           {{taxonomy:orientation}}
                            <li class="filternationality d-flex justify-content-between mb-2">
-                              <label for="available" class="">Available now</label>
-                              <span>
-                              <input id="available" class="custom-check" type="radio" name="sortby" value="available">
-                              <label for="available" class="custom-radio__label block"></label>
-                              </span>
-                           </li>
-                           <li class="filternationality d-flex justify-content-between mb-2">
-                              <label for="newest" class="">Newest</label>
+                              <label for="newest" class="">{{title}}</label>
                               <span>
                               <input id="newest" class="custom-check" type="radio" name="sortby" value="newest">
                               <label for="newest" class="custom-radio__label block"></label>
                               </span>
                            </li>
-                           <li class="filternationality d-flex justify-content-between mb-2">
-                              <label for="price_lowHigh" class="">Price: Low-High</label>
-                              <span>
-                              <input id="price_lowHigh" class="custom-check" type="radio" name="sortby" value="price_lowHigh">
-                              <label for="price_lowHigh" class="custom-radio__label block"></label>
-                              </span>
-                           </li>
-                           <li class="filternationality d-flex justify-content-between mb-2">
-                              <label for="price_highLow" class="">Price: High-Low</label>
-                              <span>
-                              <input id="price_highLow" class="custom-check" type="radio" name="sortby" value="price_highLow">
-                              <label for="price_highLow" class="custom-radio__label block"></label>
-                              </span>
-                           </li>
+                           {{/taxonomy:orientation}}
+                           
                         </ul>
                      </div>
+                     
                      <div class="filter-col mb-4 pb-4 border-bottom border-dark-gray-2">
-                        <div class="fonts-sub fs-6 f300 text-black-2 mb-3">Price</div>
+                        <div class="fonts-sub fs-6 f300 text-black-2 mb-3">Locations</div>
                         <div class="d-flex flex-wrap align-content-start grid gap-2">
-                           <button type="button" data-price="200-250" class="bg-dark-gray-1 border border-dark-gray-2 rounded py-2 px-3 text-white filter-rate">£200-250</button>
-                           <button type="button" data-price="250-300" class="bg-dark-gray-1 border border-dark-gray-2 rounded py-2 px-3 text-white filter-rate">£250-300</button>
-                           <button type="button" data-price="300+" class="bg-dark-gray-1 border border-dark-gray-2 rounded py-2 px-3 text-white filter-rate">£300+</button>
+                           {{taxonomy:locations}}
+                           <button type="button" data-price="200-250" class="bg-dark-gray-1 border border-dark-gray-2 rounded py-2 px-3 text-white filter-rate">{{title}}</button>
+                           {{/taxonomy:locations}}
+                          
                         </div>
                      </div>
-                     <div class="filter-col mb-4 pb-4 border-bottom border-dark-gray-2">
-                        <div class="fonts-sub fs-6 f300 text-black-2 mb-3">Hair Colour</div>
-                        <ul class="sort-filter-list filter-list">
-                           <li class="filterhaircolor d-flex justify-content-between mb-2">
-                              <label for="Blonde" class="">Blonde</label>
-                              <span>
-                              <input id="Blonde" class="custom-check" type="checkbox" name="colour[]" value="Blonde">
-                              <label for="Blonde" class="custom-check__label block"></label>
-                              </span>
-                           </li>
-                           <li class="filterhaircolor d-flex justify-content-between mb-2">
-                              <label for="Brunette" class="">Brunette</label>
-                              <span>
-                              <input id="Brunette" class="custom-check" type="checkbox" name="colour[]" value="Brunette">
-                              <label for="Brunette" class="custom-check__label block"></label>
-                              </span>
-                           </li>
-                           <li class="filterhaircolor d-flex justify-content-between mb-2">
-                              <label for="Redhead" class="">Redhead</label>
-                              <span>
-                              <input id="Redhead" class="custom-check" type="checkbox" name="colour[]" value="Redhead">
-                              <label for="Redhead" class="custom-check__label block"></label>
-                              </span>
-                           </li>
-                           <li class="filterhaircolor d-flex justify-content-between mb-2">
-                              <label for="Black" class="">Black</label>
-                              <span>
-                              <input id="Black" class="custom-check" type="checkbox" name="colour[]" value="Black">
-                              <label for="Black" class="custom-check__label block"></label>
-                              </span>
-                           </li>
-                           <li class="filterhaircolor d-flex justify-content-between mb-2">
-                              <label for="Others" class="">Others</label>
-                              <span>
-                              <input id="Others" class="custom-check" type="checkbox" name="colour[]" value="Others">
-                              <label for="Others" class="custom-check__label block"></label>
-                              </span>
-                           </li>
-                        </ul>
-                     </div>
-                     <div class="filter-col">
-                        <div class="fonts-sub fs-6 f300 text-black-2 mb-3">Nationality</div>
-                        <ul class="sort-filter-list filter-list">
-                           <li class="filternationality d-flex justify-content-between mb-2">
-                              <label for="British" class="">British</label>
-                              <span>
-                              <input id="British" class="custom-check" type="checkbox" name="nationality[]" value="British">
-                              <label for="British" class="custom-check__label block"></label>
-                              </span>
-                           </li>
-                           <li class="filternationality d-flex justify-content-between mb-2">
-                              <label for="European" class="">European</label>
-                              <span>
-                              <input id="European" class="custom-check" type="checkbox" name="nationality[]" value="European">
-                              <label for="European" class="custom-check__label block"></label>
-                              </span>
-                           </li>
-                           <li class="filternationality d-flex justify-content-between mb-2">
-                              <label for="Asian" class="">Asian</label>
-                              <span>
-                              <input id="Asian" class="custom-check" type="checkbox" name="nationality[]" value="Asian">
-                              <label for="Asian" class="custom-check__label block"></label>
-                              </span>
-                           </li>
-                           <li class="filternationality d-flex justify-content-between mb-2">
-                              <label for="African" class="">African</label>
-                              <span>
-                              <input id="African" class="custom-check" type="checkbox" name="nationality[]" value="African">
-                              <label for="African" class="custom-check__label block"></label>
-                              </span>
-                           </li>
-                           <li class="filternationality d-flex justify-content-between mb-2">
-                              <label for="Other" class="">Other</label>
-                              <span>
-                              <input id="Other" class="custom-check" type="checkbox" name="nationality[]" value="Other">
-                              <label for="Other" class="custom-check__label block"></label>
-                              </span>
-                           </li>
-                        </ul>
-                     </div>
+                     
+                    
                   </div>
                   <div class="modal-footer border-top border-dark-gray-2 justify-content-between">
                      <button type="reset" class="btn bg-main-bg text-md-small text-white f400 d-flex align-items-center px-0 clear_filter border-0">Clear all</button>
@@ -172,7 +78,7 @@
                   </div>
                </div>
                <span class="d-block mt-3 position-relative">
-               <span class="d-block f400 mb-1 pe-4 me-2"><a class="h4 text-primary-light f500 text-uppercase" @click="showProfile = true" >{{title}}</a></span>
+               <span class="d-block f400 mb-1 pe-4 me-2"><a class="h4 text-primary-light f500 text-uppercase"  >{{title}}</a></span>
                <span class="d-block text-small text-uppercase f500 text-white lh-1 mb-1 tagline"> {{gender }} {{title}} {{/gender}}, {{orientation}} {{title}} {{/orientation}}</span>
                <!-- <span class="text-md-small text-white f500 lh-1 text-uppercase d-block location">£200 / £250</span> -->
                <!-- <span class="favourites d-flex justify-content-center align-items-center top-0 end-0 position-absolute">
@@ -188,3 +94,6 @@
           
          </div>
       </div>
+
+
+   

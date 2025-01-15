@@ -4,41 +4,49 @@
             <nav aria-label="breadcrumb" class="d-flex justify-content-center fs-7">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item">
-                        <a href="https://www.crushescorts.com" class="text-decoration-none">London Escorts</a>
+                        <a href="/" class="text-decoration-none"> Escorts</a>
                     </li>
                     <li class="breadcrumb-item">
                         <a href="{{url}}" class="text-decoration-none">{{title}}</a>
                     </li>
                 </ol>
             </nav>
+
             <div class="gallery-single-start">
                 <div class="d-flex justify-content-between align-items-center mb-3 mb-lg-4">
+                    {{ collection:previous in="profiles" limit="1" sort="date:asc" }}
 
-                <span class="d-flex text-small align-items-center position-relative back-btn ">
-                                           <a class="d-flex flex-wrap align-items-center" href="https://www.crushescorts.com/escorts/kylie">
-                            <span class="fa-back me-2"></span>
-                            <span class="d-md-block d-none">PREVIOUS PROFILE</span>
-                            <span class="d-md-none">Prev</span>
-                        </a>
-                                    </span>
+                    <span class="d-flex text-small align-items-center position-relative back-btn ">
+                            <a class="d-flex flex-wrap align-items-center" href="{{ url }}">
+                                <span class="fa-back me-2"></span>
+                                <span class="d-md-block d-none">PREVIOUS PROFILE</span>
+                                <span class="d-md-none">Prev</span>
+                            </a>
+                    </span>
 
-                <a href="/">
-                    <img src="https://www.crushescorts.com/frontend/images/home.svg" width="25" height="25" alt="Home icon">
-                </a>
-
+                      {{ /collection:previous }}
 
 
+                    <a href="/">
+                        <img src="https://www.crushescorts.com/frontend/images/home.svg" width="25" height="25" alt="Home icon">
+                    </a>
 
+
+
+                    {{ collection:next in="profiles" limit="1" sort="date:asc" }}
 
                     <span class="text-small position-relative back-btn next-btn">
-                        <a class="d-flex flex-wrap align-items-center" href="https://www.crushescorts.com/escorts/adela">
+                        <a class="d-flex flex-wrap align-items-center" href="{{ url }}">
                             <span class="d-md-block d-none">NEXT PROFILE</span>
                             <span class="d-md-none">Next</span>
                             <span class="fa-back ms-2 mb-1"></span>
                         </a>
                     </span>
+                    {{ /collection:next }}
+                    
                 </div>
                 <div class="gallery-single-slider-wrap position-relative">
+
                     <div class="splide splide-arrow gallery-single-slider top-0 start-0 w-100 position-absolute top-0 left-0">
                         <span class="favourites d-flex justify-content-center align-items-center top-0 end-0 me-3 mt-3 position-absolute bg-white rounded-circle z-2">
                             <i class="fa-heart-f fs-4 save-favourite"></i>
@@ -49,91 +57,31 @@
                         </span>
                         <div class="splide__track">
                             <div class="splide__list">
+                                 {{profile_images}}
+
+               
+                                 <div class="splide__slide">
+                                            <a class="media-holder single-profile d-block" data-fancybox="gallery"  data-caption="" href="{{url}}">
+                                                <img src="{{url}}" alt="Kim" loading="eager">
+                                            </a>
+                                        </div>
+                                 
+
+                                {{/profile_images}}
+                                                                                                                                                <div class="splide__slide">
+                                            <a class="media-holder single-profile d-block" data-fancybox="gallery"  data-caption="" href="https://crushescorts.com/storage/1808/conversions/PHOTO-2024-12-20-19-26-09-2-large.webp">
+                                                <img src="https://crushescorts.com/storage/1808/conversions/PHOTO-2024-12-20-19-26-09-2-large.webp" alt="Kim" loading="lazy">
+                                            </a>
+                                        </div>
+                                                                                                                                           
+                                                                                                                                           
                                                                                                                                             <div class="splide__slide">
-                                            <a class="media-holder single-profile d-block" data-fancybox="gallery"  data-caption="" href="{{profile_image:url}}">
-                                                <img src="{{profile_image:url}}" alt="Ysa" loading="eager">
+                                            <a class="media-holder single-profile d-block" data-fancybox="gallery"  data-caption="" href="{{url}}">
+                                                <img src="{{glide:profile_image}}" alt="Ysa" loading="eager">
                                             </a>
                                         </div>
-                                                                                                                                                <div class="splide__slide">
-                                            <a class="media-holder single-profile d-block" data-fancybox="gallery"  data-caption="" href="https://crushescorts.com/storage/956/conversions/imageMF1WEN-large.webp">
-                                                <img src="https://crushescorts.com/storage/956/conversions/imageMF1WEN-large.webp" alt="Ysa" loading="lazy">
-                                            </a>
-                                        </div>
-                                                                                                                                                <div class="splide__slide">
-                                            <a class="media-holder single-profile d-block" data-fancybox="gallery"  data-caption="" href="https://crushescorts.com/storage/945/conversions/imageZshF9g-large.webp">
-                                                <img src="https://crushescorts.com/storage/945/conversions/imageZshF9g-large.webp" alt="Ysa" loading="lazy">
-                                            </a>
-                                        </div>
-                                                                                                                                                <div class="splide__slide">
-                                            <a class="media-holder single-profile d-block" data-fancybox="gallery"  data-caption="" href="https://crushescorts.com/storage/946/conversions/image9WYXoa-large.webp">
-                                                <img src="https://crushescorts.com/storage/946/conversions/image9WYXoa-large.webp" alt="Ysa" loading="lazy">
-                                            </a>
-                                        </div>
-                                                                                                                                                <div class="splide__slide">
-                                            <a class="media-holder single-profile d-block" data-fancybox="gallery"  data-caption="" href="https://crushescorts.com/storage/947/conversions/imagepWvsDr-large.webp">
-                                                <img src="https://crushescorts.com/storage/947/conversions/imagepWvsDr-large.webp" alt="Ysa" loading="lazy">
-                                            </a>
-                                        </div>
-                                                                                                                                                <div class="splide__slide">
-                                            <a class="media-holder single-profile d-block" data-fancybox="gallery"  data-caption="" href="https://crushescorts.com/storage/948/conversions/imageUZTpS5-large.webp">
-                                                <img src="https://crushescorts.com/storage/948/conversions/imageUZTpS5-large.webp" alt="Ysa" loading="lazy">
-                                            </a>
-                                        </div>
-                                                                                                                                                <div class="splide__slide">
-                                            <a class="media-holder single-profile d-block" data-fancybox="gallery"  data-caption="" href="https://crushescorts.com/storage/949/conversions/imageF4Ze3A-large.webp">
-                                                <img src="https://crushescorts.com/storage/949/conversions/imageF4Ze3A-large.webp" alt="Ysa" loading="lazy">
-                                            </a>
-                                        </div>
-                                                                                                                                                <div class="splide__slide">
-                                            <a class="media-holder single-profile d-block" data-fancybox="gallery"  data-caption="" href="https://crushescorts.com/storage/950/conversions/imagemEjCdL-large.webp">
-                                                <img src="https://crushescorts.com/storage/950/conversions/imagemEjCdL-large.webp" alt="Ysa" loading="lazy">
-                                            </a>
-                                        </div>
-                                                                                                                                                <div class="splide__slide">
-                                            <a class="media-holder single-profile d-block" data-fancybox="gallery"  data-caption="" href="https://crushescorts.com/storage/951/conversions/image5zl2Ac-large.webp">
-                                                <img src="https://crushescorts.com/storage/951/conversions/image5zl2Ac-large.webp" alt="Ysa" loading="lazy">
-                                            </a>
-                                        </div>
-                                                                                                                                                <div class="splide__slide">
-                                            <a class="media-holder single-profile d-block" data-fancybox="gallery"  data-caption="" href="https://crushescorts.com/storage/952/conversions/image0VnWcD-large.webp">
-                                                <img src="https://crushescorts.com/storage/952/conversions/image0VnWcD-large.webp" alt="Ysa" loading="lazy">
-                                            </a>
-                                        </div>
-                                                                                                                                                <div class="splide__slide">
-                                            <a class="media-holder single-profile d-block" data-fancybox="gallery"  data-caption="" href="https://crushescorts.com/storage/953/conversions/imageuuvrmc-large.webp">
-                                                <img src="https://crushescorts.com/storage/953/conversions/imageuuvrmc-large.webp" alt="Ysa" loading="lazy">
-                                            </a>
-                                        </div>
-                                                                                                                                                <div class="splide__slide">
-                                            <a class="media-holder single-profile d-block" data-fancybox="gallery"  data-caption="" href="https://crushescorts.com/storage/954/conversions/imageYIN8DO-large.webp">
-                                                <img src="https://crushescorts.com/storage/954/conversions/imageYIN8DO-large.webp" alt="Ysa" loading="lazy">
-                                            </a>
-                                        </div>
-                                                                                                                                                <div class="splide__slide">
-                                            <a class="media-holder single-profile d-block" data-fancybox="gallery"  data-caption="" href="https://crushescorts.com/storage/955/conversions/imageZosKZK-large.webp">
-                                                <img src="https://crushescorts.com/storage/955/conversions/imageZosKZK-large.webp" alt="Ysa" loading="lazy">
-                                            </a>
-                                        </div>
-                                                                                                                                                <div class="splide__slide">
-                                            <a class="media-holder single-profile d-block" data-fancybox="gallery"  data-caption="" href="https://crushescorts.com/storage/1750/conversions/sa2-large.webp">
-                                                <img src="https://crushescorts.com/storage/1750/conversions/sa2-large.webp" alt="Ysa" loading="lazy">
-                                            </a>
-                                        </div>
-                                                                                                                                                <div class="splide__slide">
-                                            <a class="media-holder single-profile d-block" data-fancybox="gallery"  data-caption="" href="https://crushescorts.com/storage/1751/conversions/ysa2-large.webp">
-                                                <img src="https://crushescorts.com/storage/1751/conversions/ysa2-large.webp" alt="Ysa" loading="lazy">
-                                            </a>
-                                        </div>
-                                                                                                                                                <div class="splide__slide">
-                                            <a class="media-holder single-profile d-block" data-fancybox="gallery"  data-caption="" href="https://crushescorts.com/storage/1752/conversions/ysa1-large.webp">
-                                                <img src="https://crushescorts.com/storage/1752/conversions/ysa1-large.webp" alt="Ysa" loading="lazy">
-                                            </a>
-                                        </div>
-                                                                                                                                                <div class="splide__slide">
-                                            <a class="media-holder single-profile d-block" data-fancybox="gallery"  data-caption="" href="https://crushescorts.com/storage/1753/conversions/ysa3-large.webp">
-                                                <img src="https://crushescorts.com/storage/1753/conversions/ysa3-large.webp" alt="Ysa" loading="lazy">
-                                            </a>
-                                        </div>
+                                        
+                                                                                                                                               
                                                                     
                             </div>
                         </div>
@@ -142,13 +90,15 @@
                 <div class="gallery-single-about ms-auto pe-lg-0 pt-lg-4 mt-2">
                     <div class="row">
                         <div class="col-lg-7">
-                                                            <span class="d-flex rounded-10 recom-text align-items-center border-bottom border-lg p-3 border-dark-gray-2">
+                                {{if recommended}}
+                                <span class="d-flex rounded-10 recom-text align-items-center border-bottom border-lg p-3 border-dark-gray-2">
                                     <span class="fa-stars-recommend fs-3 me-3"></span>
                                     <span>
                                         <h5 class="m-0">This is escort is recommended</h5>
-                                        <h6 class="m-0 text-small f500 text-dark-gray-9">Popular escort, highly reviewed</h6>
+                                        <h6 class="m-0 text-small f500 text-dark-gray-9">verified and highly reviewed</h6>
                                     </span>
                                 </span>
+                                {{/if}}
                             
 
                             <span class="d-flex align-items-center justify-content-between py-3">
@@ -268,43 +218,35 @@
                         </div>
                     </div>
                                         <div class="row">
-                        <div class="col-lg-12">
-                            <div class="fonts-sub fs-4 f300 text-black-2 mb-3 f500">Listed in</div>
-                            <div class="d-flex flex-wrap align-content-start grid gap-2">
-                                                                    <a href="https://www.crushescorts.com/categories/blonde-escorts" class="border gray-common-bg border-dark-gray-5 rounded py-2 px-3
-                                    text-small text-white">Blonde Escorts</a>
-                                                                    <a href="https://www.crushescorts.com/categories/gfe-escorts" class="border gray-common-bg border-dark-gray-5 rounded py-2 px-3
-                                    text-small text-white">GFE Escorts</a>
-                                                                    <a href="https://www.crushescorts.com/categories/high-class-escorts" class="border gray-common-bg border-dark-gray-5 rounded py-2 px-3
-                                    text-small text-white">High Class Escorts</a>
-                                                                    <a href="https://www.crushescorts.com/categories/european-escorts" class="border gray-common-bg border-dark-gray-5 rounded py-2 px-3
-                                    text-small text-white">European Escorts</a>
-                                                                    <a href="https://www.crushescorts.com/categories/fetish-escorts" class="border gray-common-bg border-dark-gray-5 rounded py-2 px-3
-                                    text-small text-white">Fetish Escorts</a>
-                                                                    <a href="https://www.crushescorts.com/categories/tantric-massage-escorts" class="border gray-common-bg border-dark-gray-5 rounded py-2 px-3
-                                    text-small text-white">Tantric Massage Escorts</a>
-                                                                    <a href="https://www.crushescorts.com/categories/couple-escorts" class="border gray-common-bg border-dark-gray-5 rounded py-2 px-3
-                                    text-small text-white">Couple Escorts</a>
-                                                                    <a href="https://www.crushescorts.com/categories/a-level-escorts" class="border gray-common-bg border-dark-gray-5 rounded py-2 px-3
-                                    text-small text-white">A Level Escorts</a>
-                                                                    <a href="https://www.crushescorts.com/categories/young-escorts" class="border gray-common-bg border-dark-gray-5 rounded py-2 px-3
-                                    text-small text-white">Young Escorts</a>
-                                                                    <a href="https://www.crushescorts.com/categories/slim-london-escorts" class="border gray-common-bg border-dark-gray-5 rounded py-2 px-3
-                                    text-small text-white">Slim Escorts</a>
-                                                                    <a href="https://www.crushescorts.com/categories/curvy-escorts-london" class="border gray-common-bg border-dark-gray-5 rounded py-2 px-3
-                                    text-small text-white">Curvy Escorts</a>
-                                                                    <a href="https://www.crushescorts.com/categories/mature-escorts" class="border gray-common-bg border-dark-gray-5 rounded py-2 px-3
-                                    text-small text-white">Mature Escorts</a>
-                                                                    <a href="https://www.crushescorts.com/categories/role-play-escorts" class="border gray-common-bg border-dark-gray-5 rounded py-2 px-3
-                                    text-small text-white">Role Play Escorts</a>
-                                                            </div>
-                        </div>
-                    </div>
+                                            <div class="col-lg-12">
+                                                <div class="fonts-sub fs-4 f300 text-black-2 mb-3 f500">Listed in</div>
+                                                <div class="d-flex flex-wrap align-content-start grid gap-2">
+                                                    {{categories}}
+                                                                                        <a href="{{url}}" class="border gray-common-bg border-dark-gray-5 rounded py-2 px-3
+                                                        text-small text-white">{{title}}</a>
+                                                        {{/categories}}
+                                                                                       
+                                                                                </div>
+                                            </div>
+                                        </div>
                                         <div class="row">
                         <div class="col-lg-12 pt-md-0 pt-2">
                             <div class="divider mx-auto border-top border-dark-gray-1 my-md-5 mt-4 mb-3 w-100"></div>
                         </div>
                     </div>
+
+                    <div class="row">
+                                            <div class="col-lg-12">
+                                                <div class="fonts-sub fs-4 f300 text-black-2 mb-3 f500">Services</div>
+                                                <div class="d-flex flex-wrap align-content-start grid gap-2">
+                                                    {{services}}
+                                                                                        <a href="{{url}}" class="border gray-common-bg border-dark-gray-5 rounded py-2 px-3
+                                                        text-small text-white">{{title}}</a>
+                                                        {{/services}}
+                                                                                       
+                                                                                </div>
+                                            </div>
+                                        </div>
 
                                         <div class="row">
                         <div class="col-lg-12 pt-md-0 pt-2">
@@ -316,36 +258,11 @@
                             <div class="col-lg-12">
                                 <div class="fonts-sub fs-4 f300 text-black-2 mb-3 f500">Locations</div>
                                 <div class="d-flex flex-wrap align-content-start grid gap-2">
-                                                                            <a href="https://www.crushescorts.com/locations/south-kensington-escorts" class="border gray-common-bg bg-hover-primary border-dark-gray-5 rounded py-2 px-3
-                                    text-small text-white"> South Kensington Escorts</a>
-                                                                            <a href="https://www.crushescorts.com/locations/earls-court-escorts" class="border gray-common-bg bg-hover-primary border-dark-gray-5 rounded py-2 px-3
-                                    text-small text-white"> Earls Court Escorts</a>
-                                                                            <a href="https://www.crushescorts.com/locations/gloucester-road-escorts" class="border gray-common-bg bg-hover-primary border-dark-gray-5 rounded py-2 px-3
-                                    text-small text-white"> Gloucester Road Escorts</a>
-                                                                            <a href="https://www.crushescorts.com/locations/park-lane-escorts" class="border gray-common-bg bg-hover-primary border-dark-gray-5 rounded py-2 px-3
-                                    text-small text-white"> Park Lane Escorts</a>
-                                                                            <a href="https://www.crushescorts.com/locations/high-street-kensington" class="border gray-common-bg bg-hover-primary border-dark-gray-5 rounded py-2 px-3
-                                    text-small text-white"> High Street Kensington</a>
-                                                                            <a href="https://www.crushescorts.com/locations/sloane-avenue-escorts" class="border gray-common-bg bg-hover-primary border-dark-gray-5 rounded py-2 px-3
-                                    text-small text-white"> Sloane Avenue Escorts</a>
-                                                                            <a href="https://www.crushescorts.com/locations/chelsea-escorts" class="border gray-common-bg bg-hover-primary border-dark-gray-5 rounded py-2 px-3
-                                    text-small text-white"> Chelsea Escorts</a>
-                                                                            <a href="https://www.crushescorts.com/locations/bond-street-escorts" class="border gray-common-bg bg-hover-primary border-dark-gray-5 rounded py-2 px-3
-                                    text-small text-white"> Bond Street Escorts</a>
-                                                                            <a href="https://www.crushescorts.com/locations/piccadilly-circus-escorts" class="border gray-common-bg bg-hover-primary border-dark-gray-5 rounded py-2 px-3
-                                    text-small text-white"> Piccadilly Circus Escorts</a>
-                                                                            <a href="https://www.crushescorts.com/locations/victoria-escorts" class="border gray-common-bg bg-hover-primary border-dark-gray-5 rounded py-2 px-3
-                                    text-small text-white"> Victoria Escorts</a>
-                                                                            <a href="https://www.crushescorts.com/locations/fulham-escorts" class="border gray-common-bg bg-hover-primary border-dark-gray-5 rounded py-2 px-3
-                                    text-small text-white"> Fulham Escorts</a>
-                                                                            <a href="https://www.crushescorts.com/locations/charing-cross-escorts" class="border gray-common-bg bg-hover-primary border-dark-gray-5 rounded py-2 px-3
-                                    text-small text-white"> Charing Cross Escorts</a>
-                                                                            <a href="https://www.crushescorts.com/locations/green-park-escorts" class="border gray-common-bg bg-hover-primary border-dark-gray-5 rounded py-2 px-3
-                                    text-small text-white"> Green Park Escorts</a>
-                                                                            <a href="https://www.crushescorts.com/locations/westminster-escorts" class="border gray-common-bg bg-hover-primary border-dark-gray-5 rounded py-2 px-3
-                                    text-small text-white"> Westminster Escorts</a>
-                                                                            <a href="https://www.crushescorts.com/locations/tower-hill-escorts" class="border gray-common-bg bg-hover-primary border-dark-gray-5 rounded py-2 px-3
-                                    text-small text-white"> Tower Hill Escorts</a>
+                                    {{locations}}
+                                                                            <a href="{{url}}" class="border gray-common-bg bg-hover-primary border-dark-gray-5 rounded py-2 px-3
+                                    text-small text-white"> {{title}}</a>
+                                    {{/locations}}
+                                                                            
                                                                     </div>
                             </div>
                         </div>
@@ -1033,3 +950,14 @@
         </div>
     </div>
 </div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+      new Splide('.gallery-single-slider', {
+        pagination: true,
+        arrows: false,
+      }).mount();
+    });
+  </script>
+
+
