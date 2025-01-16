@@ -99,19 +99,22 @@ tabs:
               mode: keyed
               keys:
                 -
-                  key: age
+                  key: Age
                   value: Age
                 -
-                  key: body-type
+                  key: Body
                   value: 'Body Type'
                 -
-                  key: nationality
+                  key: Nationality
                   value: Nationality
                 -
-                  key: city
+                  key: Languages
+                  value: Languages
+                -
+                  key: City
                   value: City
                 -
-                  key: address
+                  key: Address
                   value: Address
               type: array
               display: Attributes
@@ -191,6 +194,39 @@ tabs:
                             type: float
                             display: 'Outcall rate'
                             width: 33
+      -
+        display: Reviews
+        fields:
+          -
+            handle: reviews
+            field:
+              type: replicator
+              display: Reviews
+              sets:
+                new_review_group:
+                  display: 'New Review Group'
+                  sets:
+                    new_review:
+                      display: 'New Review'
+                      fields:
+                        -
+                          handle: name
+                          field:
+                            type: text
+                            display: Name
+                            width: 50
+                        -
+                          handle: review
+                          field:
+                            type: markdown
+                            display: review
+                        -
+                          handle: rating
+                          field:
+                            type: integer
+                            display: rating
+                            validate:
+                              - null
   sidebar:
     display: Sidebar
     sections:

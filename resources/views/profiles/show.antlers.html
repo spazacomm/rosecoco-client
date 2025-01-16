@@ -62,19 +62,22 @@
                                                                                                                                            
                                                                                                                                             <div class="splide__slide">
                                             <a class="media-holder single-profile d-block" data-fancybox="gallery"  data-caption="" href="{{glide:url}}">
-                                                <img src="{{glide:profile_image}}" alt="Ysa" loading="eager">
+                                                <img src="{{glide:profile_image}}" alt="{{title}}" loading="eager">
                                             </a>
                                         </div>
+
+                                        {{if profile_images | length > 0}}
                                         
                                         {{profile_images}}
 
                                              <div class="splide__slide">
                                             <a class="media-holder single-profile d-block" data-fancybox="gallery"  data-caption="" href="{{glide:url}}">
-                                                <img src="{{glide:url}}" alt="Ysa" loading="eager">
+                                                <img src="{{glide:url}}" alt="{{title}}" loading="eager">
                                             </a>
                                         </div>
 
                                         {{/profile_images}}
+                                        {{/if}}
                                                                                                                                                
                                                                     
                             </div>
@@ -113,13 +116,13 @@
                                 <div class="profile-info border my-4 my-lg-0 mt-lg-2 px-2 px-lg-4 py-2 rounded-10 gray-common-border gray-common-bg">
                                 <span class="row">
 
-                                        {{ attributes}}
+                                        {{ foreach:attributes}}
                                                                             <span class="col-4 col-md-4 col-lg-3 py-2">
                                             <h4 class="m-0 text-md-small f500">{{key }}</h4>
                                             <h6 class="m-0 text-small text-dark-gray-9 f500">{{value}}</h6>
                                         </span>
 
-                                           {{/attributes}}
+                                           {{/foreach:attributes}}
                                                                             <!-- <span class="col-4 col-md-4 col-lg-3 py-2">
                                             <h4 class="m-0 text-md-small f500">Bust Size</h4>
                                             <h6 class="m-0 text-small text-dark-gray-9 f500">34B (natural)</h6>
@@ -269,27 +272,44 @@
                                 </span>
                             </span>
                                                         <span class="d-flex align-items-center justify-content-between rounded-2 border gray-common-border mt-3 mt-lg-4 py-4 px-3 px-lg-5">
-                                <span class="text-center">
-                                                                          <h4 class="mb-2 fs-4">5</h4>
-                                    <span class="d-flex">
-                                                                                            <span class="fa-star me-1"></span>
-                                                                                            <span class="fa-star me-1"></span>
-                                                                                            <span class="fa-star me-1"></span>
-                                                                                            <span class="fa-star me-1"></span>
-                                                                                            <span class="fa-star me-1"></span>
-                                                                                        <!-- Loop for empty stars -->
-                                            
-                                    </span>
-                                </span>
-                                                                <span class="text-center">
-                                    <h4 class="mb-2 fs-2"><span class="fa-stars-recommend"></span></h4>
-                                    <h3 class="m-0 fs-5 text-white fs-md-down-6">Highly Reviewed</h3>
-                                </span>
-                                                                <span class="text-center" data-bs-toggle="modal" data-bs-target="#ratingpop">
-                                    <h4 class="mb-2 fs-5">20</h4>
-                                    <h3 class="m-0 fs-5 fs-md-down-6">Reviews</h3>
-                                </span>
-                            </span>
+
+    {{ if reviews | length > 0 }}
+        {{ total_rating = reviews | pluck:rating | sum }}
+        {{ total_items = reviews | length }}
+        {{ average_rating = (total_rating / total_items) | round:0 }}
+    {{ else }}
+        {{ average_rating = 0 }}
+    {{ /if }}
+
+    <span class="text-center">
+        <h4 class="mb-2 fs-4">
+            {{ average_rating }}
+        </h4>
+        <span class="d-flex">
+            <!-- Loop for filled stars -->
+            {{ loop times="{{average_rating}}"}}
+                <span class="fa fa-star me-1"></span>
+            {{ /loop }}
+            
+        </span>
+    </span>
+
+    {{if average_rating > 3}}
+    <span class="text-center">
+        <h4 class="mb-2 fs-2">
+            <span class="fa-stars-recommend"></span>
+        </h4>
+        <h3 class="m-0 fs-5 text-white fs-md-down-6">Highly Reviewed</h3>
+    </span>
+    {{/if}}
+
+    <span class="text-center" data-bs-toggle="modal" data-bs-target="#ratingpop">
+        <h4 class="mb-2 fs-5">{{ reviews | length }}</h4>
+        <h3 class="m-0 fs-5 fs-md-down-6">Reviews</h3>
+    </span>
+
+</span>
+
                                                     </div>
                     </div>
                     
@@ -299,447 +319,35 @@
                                 <div class="splide__track">
                                     <div class="splide__list">
 
-                                                                                <div class="splide__slide">
-                                            <div class="py-4 py-3 border p-3 pt-4 rounded-10 gray-common-border gray-common-bg review_tab-col">
-                                                <span class="d-flex pb-2">
-                                                    
+                                        {{reviews}}
 
-                                                                                                            <span class="fa fa-star text-lg-small me-1"></span>
-                                                                                                            <span class="fa fa-star text-lg-small me-1"></span>
-                                                                                                            <span class="fa fa-star text-lg-small me-1"></span>
-                                                                                                            <span class="fa fa-star text-lg-small me-1"></span>
-                                                                                                            <span class="fa fa-star text-lg-small me-1"></span>
-                                                    
-                                                    <!-- Loop for empty stars -->
-                                                                                                    </span>
-                                                <p class="text-dark-gray-9 f300 mt-2 mb-2">
-                                                    If you like young and petite girls , Lolita is the best choice . I think I am in love with her sweet voice and smile . 
-                                                </p>
+                                        <div class="splide__slide">
+                                                <div class="py-4 py-3 border p-3 pt-4 rounded-10 gray-common-border gray-common-bg review_tab-col">
+                                                                                                            <span class="d-flex pb-2">
+                                                        
+                                                                                                                {{ loop times="{{rating}}"}}
+                                                                                                                <span class="fa fa-star text-lg-small me-1"></span>
+                                                                                                                {{/loop}}
+                                                                                                               
+                                                        
+                                                        <!-- Loop for empty stars -->
+                                                                                                            </span>
+                                                                                                            <p class="text-dark-gray-9 f300 mt-2 mb-2">
+                                                                                                                {{review}}
+                                                                                                            </p>
+                                                                                                            <p class="text-dark-gray-9 f300 mt-2 mb-2">
+                                                                                                                {{name}}
+                                                                                                            </p>
 
 
 
 
-                                            </div>
+                                                </div>
                                         </div>
-                                                                                <div class="splide__slide">
-                                            <div class="py-4 py-3 border p-3 pt-4 rounded-10 gray-common-border gray-common-bg review_tab-col">
-                                                <span class="d-flex pb-2">
-                                                    
 
-                                                                                                            <span class="fa fa-star text-lg-small me-1"></span>
-                                                                                                            <span class="fa fa-star text-lg-small me-1"></span>
-                                                                                                            <span class="fa fa-star text-lg-small me-1"></span>
-                                                                                                            <span class="fa fa-star text-lg-small me-1"></span>
-                                                                                                            <span class="fa fa-star text-lg-small me-1"></span>
-                                                    
-                                                    <!-- Loop for empty stars -->
-                                                                                                    </span>
-                                                <p class="text-dark-gray-9 f300 mt-2 mb-2">
-                                                    Cute petite young girl with a friendly attitude . And she is a great kisser . Lovely to spend a couple of hours with .
-                                                </p>
-
-
-
-
-                                            </div>
-                                        </div>
-                                                                                <div class="splide__slide">
-                                            <div class="py-4 py-3 border p-3 pt-4 rounded-10 gray-common-border gray-common-bg review_tab-col">
-                                                <span class="d-flex pb-2">
-                                                    
-
-                                                                                                            <span class="fa fa-star text-lg-small me-1"></span>
-                                                                                                            <span class="fa fa-star text-lg-small me-1"></span>
-                                                                                                            <span class="fa fa-star text-lg-small me-1"></span>
-                                                                                                            <span class="fa fa-star text-lg-small me-1"></span>
-                                                                                                            <span class="fa fa-star text-lg-small me-1"></span>
-                                                    
-                                                    <!-- Loop for empty stars -->
-                                                                                                    </span>
-                                                <p class="text-dark-gray-9 f300 mt-2 mb-2">
-                                                    Lolita is a very hot 20 years old with a tight body and a little bum . She was willing to try new things and she appeared interested . She was really up for it .
-                                                </p>
-
-
-
-
-                                            </div>
-                                        </div>
-                                                                                <div class="splide__slide">
-                                            <div class="py-4 py-3 border p-3 pt-4 rounded-10 gray-common-border gray-common-bg review_tab-col">
-                                                <span class="d-flex pb-2">
-                                                    
-
-                                                                                                            <span class="fa fa-star text-lg-small me-1"></span>
-                                                                                                            <span class="fa fa-star text-lg-small me-1"></span>
-                                                                                                            <span class="fa fa-star text-lg-small me-1"></span>
-                                                                                                            <span class="fa fa-star text-lg-small me-1"></span>
-                                                                                                            <span class="fa fa-star text-lg-small me-1"></span>
-                                                    
-                                                    <!-- Loop for empty stars -->
-                                                                                                    </span>
-                                                <p class="text-dark-gray-9 f300 mt-2 mb-2">
-                                                    Lovely petite girl , all services were provided with joy , I think we clicked . I had 2 fantastic rounds in one hour . Thank you Lolita .
-                                                </p>
-
-
-
-
-                                            </div>
-                                        </div>
-                                                                                <div class="splide__slide">
-                                            <div class="py-4 py-3 border p-3 pt-4 rounded-10 gray-common-border gray-common-bg review_tab-col">
-                                                <span class="d-flex pb-2">
-                                                    
-
-                                                                                                            <span class="fa fa-star text-lg-small me-1"></span>
-                                                                                                            <span class="fa fa-star text-lg-small me-1"></span>
-                                                                                                            <span class="fa fa-star text-lg-small me-1"></span>
-                                                                                                            <span class="fa fa-star text-lg-small me-1"></span>
-                                                                                                            <span class="fa fa-star text-lg-small me-1"></span>
-                                                    
-                                                    <!-- Loop for empty stars -->
-                                                                                                    </span>
-                                                <p class="text-dark-gray-9 f300 mt-2 mb-2">
-                                                    Lolita has a lot of energy . She gave me a crazy experience . It was like being in one of those movies . And she is a great person . Thumbs up .
-                                                </p>
-
-
-
-
-                                            </div>
-                                        </div>
-                                                                                <div class="splide__slide">
-                                            <div class="py-4 py-3 border p-3 pt-4 rounded-10 gray-common-border gray-common-bg review_tab-col">
-                                                <span class="d-flex pb-2">
-                                                    
-
-                                                                                                            <span class="fa fa-star text-lg-small me-1"></span>
-                                                                                                            <span class="fa fa-star text-lg-small me-1"></span>
-                                                                                                            <span class="fa fa-star text-lg-small me-1"></span>
-                                                                                                            <span class="fa fa-star text-lg-small me-1"></span>
-                                                                                                            <span class="fa fa-star text-lg-small me-1"></span>
-                                                    
-                                                    <!-- Loop for empty stars -->
-                                                                                                    </span>
-                                                <p class="text-dark-gray-9 f300 mt-2 mb-2">
-                                                    Fantastic crazy s.x . Will repeat .
-                                                </p>
-
-
-
-
-                                            </div>
-                                        </div>
-                                                                                <div class="splide__slide">
-                                            <div class="py-4 py-3 border p-3 pt-4 rounded-10 gray-common-border gray-common-bg review_tab-col">
-                                                <span class="d-flex pb-2">
-                                                    
-
-                                                                                                            <span class="fa fa-star text-lg-small me-1"></span>
-                                                                                                            <span class="fa fa-star text-lg-small me-1"></span>
-                                                                                                            <span class="fa fa-star text-lg-small me-1"></span>
-                                                                                                            <span class="fa fa-star text-lg-small me-1"></span>
-                                                                                                            <span class="fa fa-star text-lg-small me-1"></span>
-                                                    
-                                                    <!-- Loop for empty stars -->
-                                                                                                    </span>
-                                                <p class="text-dark-gray-9 f300 mt-2 mb-2">
-                                                    Lolita was great . I will not tell the juicy details but I had a fantastic time . 
-                                                </p>
-
-
-
-
-                                            </div>
-                                        </div>
-                                                                                <div class="splide__slide">
-                                            <div class="py-4 py-3 border p-3 pt-4 rounded-10 gray-common-border gray-common-bg review_tab-col">
-                                                <span class="d-flex pb-2">
-                                                    
-
-                                                                                                            <span class="fa fa-star text-lg-small me-1"></span>
-                                                                                                            <span class="fa fa-star text-lg-small me-1"></span>
-                                                                                                            <span class="fa fa-star text-lg-small me-1"></span>
-                                                                                                            <span class="fa fa-star text-lg-small me-1"></span>
-                                                                                                            <span class="fa fa-star text-lg-small me-1"></span>
-                                                    
-                                                    <!-- Loop for empty stars -->
-                                                                                                    </span>
-                                                <p class="text-dark-gray-9 f300 mt-2 mb-2">
-                                                    Lolita welcomed me in a nice , clean flat , wearing a sexy dress so the first impression was great . After that I discovered how friendly she was , I felt completely at ease . She has been super naughty and she has put on the school girl outfit for me . I recommend her . 
-                                                </p>
-
-
-
-
-                                            </div>
-                                        </div>
-                                                                                <div class="splide__slide">
-                                            <div class="py-4 py-3 border p-3 pt-4 rounded-10 gray-common-border gray-common-bg review_tab-col">
-                                                <span class="d-flex pb-2">
-                                                    
-
-                                                                                                            <span class="fa fa-star text-lg-small me-1"></span>
-                                                                                                            <span class="fa fa-star text-lg-small me-1"></span>
-                                                                                                            <span class="fa fa-star text-lg-small me-1"></span>
-                                                                                                            <span class="fa fa-star text-lg-small me-1"></span>
-                                                                                                            <span class="fa fa-star text-lg-small me-1"></span>
-                                                    
-                                                    <!-- Loop for empty stars -->
-                                                                                                    </span>
-                                                <p class="text-dark-gray-9 f300 mt-2 mb-2">
-                                                    Friendly girl with a great body . She was very engaged to the kinky action . We had 2 rounds in 1 hour  . She is on my return list now . 
-                                                </p>
-
-
-
-
-                                            </div>
-                                        </div>
-                                                                                <div class="splide__slide">
-                                            <div class="py-4 py-3 border p-3 pt-4 rounded-10 gray-common-border gray-common-bg review_tab-col">
-                                                <span class="d-flex pb-2">
-                                                    
-
-                                                                                                            <span class="fa fa-star text-lg-small me-1"></span>
-                                                                                                            <span class="fa fa-star text-lg-small me-1"></span>
-                                                                                                            <span class="fa fa-star text-lg-small me-1"></span>
-                                                                                                            <span class="fa fa-star text-lg-small me-1"></span>
-                                                                                                            <span class="fa fa-star text-lg-small me-1"></span>
-                                                    
-                                                    <!-- Loop for empty stars -->
-                                                                                                    </span>
-                                                <p class="text-dark-gray-9 f300 mt-2 mb-2">
-                                                    Incredible tiny girl. She is clearly gorgeous and has welcomed me in a nice flat. Fabulous service too.
-                                                </p>
-
-
-
-
-                                            </div>
-                                        </div>
-                                                                                <div class="splide__slide">
-                                            <div class="py-4 py-3 border p-3 pt-4 rounded-10 gray-common-border gray-common-bg review_tab-col">
-                                                <span class="d-flex pb-2">
-                                                    
-
-                                                                                                            <span class="fa fa-star text-lg-small me-1"></span>
-                                                                                                            <span class="fa fa-star text-lg-small me-1"></span>
-                                                                                                            <span class="fa fa-star text-lg-small me-1"></span>
-                                                                                                            <span class="fa fa-star text-lg-small me-1"></span>
-                                                                                                            <span class="fa fa-star text-lg-small me-1"></span>
-                                                    
-                                                    <!-- Loop for empty stars -->
-                                                                                                    </span>
-                                                <p class="text-dark-gray-9 f300 mt-2 mb-2">
-                                                    What an incredible tight body! WOW! Lolita looked great, was friendly and her incall place was clean and tidy. It was a cold day but Lolita warmed me up quickly. As a lover of petite girls I recommend her.
-                                                </p>
-
-
-
-
-                                            </div>
-                                        </div>
-                                                                                <div class="splide__slide">
-                                            <div class="py-4 py-3 border p-3 pt-4 rounded-10 gray-common-border gray-common-bg review_tab-col">
-                                                <span class="d-flex pb-2">
-                                                    
-
-                                                                                                            <span class="fa fa-star text-lg-small me-1"></span>
-                                                                                                            <span class="fa fa-star text-lg-small me-1"></span>
-                                                                                                            <span class="fa fa-star text-lg-small me-1"></span>
-                                                                                                            <span class="fa fa-star text-lg-small me-1"></span>
-                                                                                                            <span class="fa fa-star text-lg-small me-1"></span>
-                                                    
-                                                    <!-- Loop for empty stars -->
-                                                                                                    </span>
-                                                <p class="text-dark-gray-9 f300 mt-2 mb-2">
-                                                    She has a hypnotising smile and a heavenly body. FK was on offer. She is one of the best.
-                                                </p>
-
-
-
-
-                                            </div>
-                                        </div>
-                                                                                <div class="splide__slide">
-                                            <div class="py-4 py-3 border p-3 pt-4 rounded-10 gray-common-border gray-common-bg review_tab-col">
-                                                <span class="d-flex pb-2">
-                                                    
-
-                                                                                                            <span class="fa fa-star text-lg-small me-1"></span>
-                                                                                                            <span class="fa fa-star text-lg-small me-1"></span>
-                                                                                                            <span class="fa fa-star text-lg-small me-1"></span>
-                                                                                                            <span class="fa fa-star text-lg-small me-1"></span>
-                                                                                                            <span class="fa fa-star text-lg-small me-1"></span>
-                                                    
-                                                    <!-- Loop for empty stars -->
-                                                                                                    </span>
-                                                <p class="text-dark-gray-9 f300 mt-2 mb-2">
-                                                    I went to see Lolita at her place and she was a delight, she was very engaging and she had as much fun as I did seducing me. I usually take a long time but she was very patient. I hope to see her again soon.
-                                                </p>
-
-
-
-
-                                            </div>
-                                        </div>
-                                                                                <div class="splide__slide">
-                                            <div class="py-4 py-3 border p-3 pt-4 rounded-10 gray-common-border gray-common-bg review_tab-col">
-                                                <span class="d-flex pb-2">
-                                                    
-
-                                                                                                            <span class="fa fa-star text-lg-small me-1"></span>
-                                                                                                            <span class="fa fa-star text-lg-small me-1"></span>
-                                                                                                            <span class="fa fa-star text-lg-small me-1"></span>
-                                                                                                            <span class="fa fa-star text-lg-small me-1"></span>
-                                                                                                            <span class="fa fa-star text-lg-small me-1"></span>
-                                                    
-                                                    <!-- Loop for empty stars -->
-                                                                                                    </span>
-                                                <p class="text-dark-gray-9 f300 mt-2 mb-2">
-                                                    Lolita is sexy and naughty, she made me explode twice and she was much into kissing and playing with toys. Outstanding.
-                                                </p>
-
-
-
-
-                                            </div>
-                                        </div>
-                                                                                <div class="splide__slide">
-                                            <div class="py-4 py-3 border p-3 pt-4 rounded-10 gray-common-border gray-common-bg review_tab-col">
-                                                <span class="d-flex pb-2">
-                                                    
-
-                                                                                                            <span class="fa fa-star text-lg-small me-1"></span>
-                                                                                                            <span class="fa fa-star text-lg-small me-1"></span>
-                                                                                                            <span class="fa fa-star text-lg-small me-1"></span>
-                                                                                                            <span class="fa fa-star text-lg-small me-1"></span>
-                                                                                                            <span class="fa fa-star text-lg-small me-1"></span>
-                                                    
-                                                    <!-- Loop for empty stars -->
-                                                                                                    </span>
-                                                <p class="text-dark-gray-9 f300 mt-2 mb-2">
-                                                    Lolita is like a cure for the heart, warm and sexy. Very special indeed. I recommend her.
-                                                </p>
-
-
-
-
-                                            </div>
-                                        </div>
-                                                                                <div class="splide__slide">
-                                            <div class="py-4 py-3 border p-3 pt-4 rounded-10 gray-common-border gray-common-bg review_tab-col">
-                                                <span class="d-flex pb-2">
-                                                    
-
-                                                                                                            <span class="fa fa-star text-lg-small me-1"></span>
-                                                                                                            <span class="fa fa-star text-lg-small me-1"></span>
-                                                                                                            <span class="fa fa-star text-lg-small me-1"></span>
-                                                                                                            <span class="fa fa-star text-lg-small me-1"></span>
-                                                                                                            <span class="fa fa-star text-lg-small me-1"></span>
-                                                    
-                                                    <!-- Loop for empty stars -->
-                                                                                                    </span>
-                                                <p class="text-dark-gray-9 f300 mt-2 mb-2">
-                                                    This petite babe truly loves sex. She made me feel at ease and it was the first time after many years when I exploded twice in an hour. See you soon Lolita.
-                                                </p>
-
-
-
-
-                                            </div>
-                                        </div>
-                                                                                <div class="splide__slide">
-                                            <div class="py-4 py-3 border p-3 pt-4 rounded-10 gray-common-border gray-common-bg review_tab-col">
-                                                <span class="d-flex pb-2">
-                                                    
-
-                                                                                                            <span class="fa fa-star text-lg-small me-1"></span>
-                                                                                                            <span class="fa fa-star text-lg-small me-1"></span>
-                                                                                                            <span class="fa fa-star text-lg-small me-1"></span>
-                                                                                                            <span class="fa fa-star text-lg-small me-1"></span>
-                                                                                                            <span class="fa fa-star text-lg-small me-1"></span>
-                                                    
-                                                    <!-- Loop for empty stars -->
-                                                                                                    </span>
-                                                <p class="text-dark-gray-9 f300 mt-2 mb-2">
-                                                    Enchanting lovely girl. She is slim and I had a brilliant time.
-                                                </p>
-
-
-
-
-                                            </div>
-                                        </div>
-                                                                                <div class="splide__slide">
-                                            <div class="py-4 py-3 border p-3 pt-4 rounded-10 gray-common-border gray-common-bg review_tab-col">
-                                                <span class="d-flex pb-2">
-                                                    
-
-                                                                                                            <span class="fa fa-star text-lg-small me-1"></span>
-                                                                                                            <span class="fa fa-star text-lg-small me-1"></span>
-                                                                                                            <span class="fa fa-star text-lg-small me-1"></span>
-                                                                                                            <span class="fa fa-star text-lg-small me-1"></span>
-                                                                                                            <span class="fa fa-star text-lg-small me-1"></span>
-                                                    
-                                                    <!-- Loop for empty stars -->
-                                                                                                    </span>
-                                                <p class="text-dark-gray-9 f300 mt-2 mb-2">
-                                                    Lolita was sooo good, exceptional. Really pretty and clean.
-                                                </p>
-
-
-
-
-                                            </div>
-                                        </div>
-                                                                                <div class="splide__slide">
-                                            <div class="py-4 py-3 border p-3 pt-4 rounded-10 gray-common-border gray-common-bg review_tab-col">
-                                                <span class="d-flex pb-2">
-                                                    
-
-                                                                                                            <span class="fa fa-star text-lg-small me-1"></span>
-                                                                                                            <span class="fa fa-star text-lg-small me-1"></span>
-                                                                                                            <span class="fa fa-star text-lg-small me-1"></span>
-                                                                                                            <span class="fa fa-star text-lg-small me-1"></span>
-                                                                                                            <span class="fa fa-star text-lg-small me-1"></span>
-                                                    
-                                                    <!-- Loop for empty stars -->
-                                                                                                    </span>
-                                                <p class="text-dark-gray-9 f300 mt-2 mb-2">
-                                                    Lolita was fantastic. The first time I came on her breasts and the second time she made me finish with her hand while we were kissing. A true GFE. I will repeat.
-                                                </p>
-
-
-
-
-                                            </div>
-                                        </div>
-                                                                                <div class="splide__slide">
-                                            <div class="py-4 py-3 border p-3 pt-4 rounded-10 gray-common-border gray-common-bg review_tab-col">
-                                                <span class="d-flex pb-2">
-                                                    
-
-                                                                                                            <span class="fa fa-star text-lg-small me-1"></span>
-                                                                                                            <span class="fa fa-star text-lg-small me-1"></span>
-                                                                                                            <span class="fa fa-star text-lg-small me-1"></span>
-                                                                                                            <span class="fa fa-star text-lg-small me-1"></span>
-                                                                                                            <span class="fa fa-star text-lg-small me-1"></span>
-                                                    
-                                                    <!-- Loop for empty stars -->
-                                                                                                    </span>
-                                                <p class="text-dark-gray-9 f300 mt-2 mb-2">
-                                                    Lolita was friendly and welcoming and she had a lovely smile. I must say she looks better than her pictures and she is very open minded. A fantastic experience.
-                                                </p>
-
-
-
-
-                                            </div>
-                                        </div>
-                                                                            </div>
+                                        {{/reviews}}
+                                                                               
+                                                                    </div>
                                 </div>
                             </div>
                             <span class="write-review-btn d-lg-none">
@@ -759,125 +367,34 @@
     </div>
 </div>
 
-         <div class="similar-staff container-medium mx-auto">
+         <!-- <div class="similar-staff container-medium mx-auto">
     <h4>Similar profiles</h4>
     <div class="row">
+
+        {{collection:profiles limit="5"}}
                 <div class="col-md-6 col-lg-2 col-6 mb-4 pb-md-2 px-md-2 px-2 gallery-item">
             <div class="d-block position-relative">
                 <div class=" staff-gallery">
-                    <img class="fw fh" src="https://crushescorts.com/storage/914/conversions/imagerMG7Aa-thumb.webp" loading="lazy" alt="Staff Image">
+                    <img class="media-holder fw fh" src="{{glide:profile_image width='150px' height='210px'}}" loading="lazy" alt="{{title}}">
                 </div>
             </div>
             <span class="d-block mt-2 position-relative">
-                <span class="d-block f400 mb-1"><a class="h5 text-primary f300 text-uppercase" href="https://www.crushescorts.com/escorts/kylie">Kylie</a></span>
+                <span class="d-block f400 mb-1"><a class="h5 text-primary f300 text-uppercase" href="{{url}}">{{title}}</a></span>
                 <span class="d-block text-small text-uppercase f500 text-white lh-1 mb-1 tagline"></span>
-                <span class="text-md-small text-white f500 lh-1 text-uppercase d-block location">£250.00</span>
-                <span class="favourites d-flex justify-content-center align-items-center top-0 end-0 position-absolute">
+                 <span class="text-md-small text-white f500 lh-1 text-uppercase d-block location">{{if incall}} Incall {{/if}} {{if outcall }} / Outcall {{/if}}</span> 
+                 <span class="favourites d-flex justify-content-center align-items-center top-0 end-0 position-absolute">
                     <i class="fa-star me-md-1"></i>
                     <span class="favourites-message">
                         <span class="text">10</span>
                         <span class="favourites-close"></span>
                     </span>
-                </span>
+                </span> 
             </span>
         </div>
-                <div class="col-md-6 col-lg-2 col-6 mb-4 pb-md-2 px-md-2 px-2 gallery-item">
-            <div class="d-block position-relative">
-                <div class=" staff-gallery">
-                    <img class="fw fh" src="https://crushescorts.com/storage/1429/conversions/imageK1bPNj-thumb.webp" loading="lazy" alt="Staff Image">
-                </div>
+        {{/collection:profiles}}
+                
             </div>
-            <span class="d-block mt-2 position-relative">
-                <span class="d-block f400 mb-1"><a class="h5 text-primary f300 text-uppercase" href="https://www.crushescorts.com/escorts/kalinda">Kalinda</a></span>
-                <span class="d-block text-small text-uppercase f500 text-white lh-1 mb-1 tagline"></span>
-                <span class="text-md-small text-white f500 lh-1 text-uppercase d-block location">£200.00</span>
-                <span class="favourites d-flex justify-content-center align-items-center top-0 end-0 position-absolute">
-                    <i class="fa-star me-md-1"></i>
-                    <span class="favourites-message">
-                        <span class="text">10</span>
-                        <span class="favourites-close"></span>
-                    </span>
-                </span>
-            </span>
-        </div>
-                <div class="col-md-6 col-lg-2 col-6 mb-4 pb-md-2 px-md-2 px-2 gallery-item">
-            <div class="d-block position-relative">
-                <div class=" staff-gallery">
-                    <img class="fw fh" src="https://crushescorts.com/storage/1738/conversions/sonia6-thumb.webp" loading="lazy" alt="Staff Image">
-                </div>
-            </div>
-            <span class="d-block mt-2 position-relative">
-                <span class="d-block f400 mb-1"><a class="h5 text-primary f300 text-uppercase" href="https://www.crushescorts.com/escorts/sonia">Sonia</a></span>
-                <span class="d-block text-small text-uppercase f500 text-white lh-1 mb-1 tagline"></span>
-                <span class="text-md-small text-white f500 lh-1 text-uppercase d-block location">£150</span>
-                <span class="favourites d-flex justify-content-center align-items-center top-0 end-0 position-absolute">
-                    <i class="fa-star me-md-1"></i>
-                    <span class="favourites-message">
-                        <span class="text">10</span>
-                        <span class="favourites-close"></span>
-                    </span>
-                </span>
-            </span>
-        </div>
-                <div class="col-md-6 col-lg-2 col-6 mb-4 pb-md-2 px-md-2 px-2 gallery-item">
-            <div class="d-block position-relative">
-                <div class=" staff-gallery">
-                    <img class="fw fh" src="https://crushescorts.com/storage/1527/conversions/imageNRbF7A-thumb.webp" loading="lazy" alt="Staff Image">
-                </div>
-            </div>
-            <span class="d-block mt-2 position-relative">
-                <span class="d-block f400 mb-1"><a class="h5 text-primary f300 text-uppercase" href="https://www.crushescorts.com/escorts/nour">Nour</a></span>
-                <span class="d-block text-small text-uppercase f500 text-white lh-1 mb-1 tagline"></span>
-                <span class="text-md-small text-white f500 lh-1 text-uppercase d-block location">£400.00</span>
-                <span class="favourites d-flex justify-content-center align-items-center top-0 end-0 position-absolute">
-                    <i class="fa-star me-md-1"></i>
-                    <span class="favourites-message">
-                        <span class="text">9.7</span>
-                        <span class="favourites-close"></span>
-                    </span>
-                </span>
-            </span>
-        </div>
-                <div class="col-md-6 col-lg-2 col-6 mb-4 pb-md-2 px-md-2 px-2 gallery-item">
-            <div class="d-block position-relative">
-                <div class=" staff-gallery">
-                    <img class="fw fh" src="https://crushescorts.com/storage/1613/conversions/image7GaICQ-thumb.webp" loading="lazy" alt="Staff Image">
-                </div>
-            </div>
-            <span class="d-block mt-2 position-relative">
-                <span class="d-block f400 mb-1"><a class="h5 text-primary f300 text-uppercase" href="https://www.crushescorts.com/escorts/mel-maia">Mel Maia</a></span>
-                <span class="d-block text-small text-uppercase f500 text-white lh-1 mb-1 tagline"></span>
-                <span class="text-md-small text-white f500 lh-1 text-uppercase d-block location">£250.00</span>
-                <span class="favourites d-flex justify-content-center align-items-center top-0 end-0 position-absolute">
-                    <i class="fa-star me-md-1"></i>
-                    <span class="favourites-message">
-                        <span class="text">10</span>
-                        <span class="favourites-close"></span>
-                    </span>
-                </span>
-            </span>
-        </div>
-                <div class="col-md-6 col-lg-2 col-6 mb-4 pb-md-2 px-md-2 px-2 gallery-item">
-            <div class="d-block position-relative">
-                <div class=" staff-gallery">
-                    <img class="fw fh" src="https://crushescorts.com/storage/1624/conversions/imageVmranH-thumb.webp" loading="lazy" alt="Staff Image">
-                </div>
-            </div>
-            <span class="d-block mt-2 position-relative">
-                <span class="d-block f400 mb-1"><a class="h5 text-primary f300 text-uppercase" href="https://www.crushescorts.com/escorts/princess">Princess</a></span>
-                <span class="d-block text-small text-uppercase f500 text-white lh-1 mb-1 tagline"></span>
-                <span class="text-md-small text-white f500 lh-1 text-uppercase d-block location">£200.00</span>
-                <span class="favourites d-flex justify-content-center align-items-center top-0 end-0 position-absolute">
-                    <i class="fa-star me-md-1"></i>
-                    <span class="favourites-message">
-                        <span class="text">10</span>
-                        <span class="favourites-close"></span>
-                    </span>
-                </span>
-            </span>
-        </div>
-            </div>
-</div>
+</div> -->
     
 <div class="modal fade " id="reviewpop" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
     <div class="modal-dialog">
@@ -889,14 +406,14 @@
             <div class="modal-body px-5">
                 <div class="review-tab pb-2">
                     <span class="text-center d-block">
-                        <img class="rounded-circle object-fit-cover" src="https://crushescorts.com/storage/1749/conversions/ysa4-thumb.webp" loading="lazy" width="76" height="76" alt="Ysa">
+                        <img class="rounded-circle object-fit-cover" src="{{glide:profile_image}}" loading="lazy" width="76" height="76" alt="{{title}}">
                     </span>
                     <form class="form py-3" id="reviews-form">
                         <input type="hidden" name="_token" value="3uMjuQ8rehG8Qje8GXQiYCMMETYR6DMz7Wxwq7xt" autocomplete="off">
                         <input type="hidden" name="staff_id" value="102">
                         <div id="message"></div>
                         <div class="ratings-group">
-                            <h5 class="mt-3 mb-2 text-start">How was your experience with Ysa?</h5>
+                            <h5 class="mt-3 mb-2 text-start">How was your experience with {{title}}?</h5>
                             <span class="user-rating justify-content-end">
                               <input type="radio" name="rating" value="5"><span class="star"></span>
                               <input type="radio" name="rating" value="4"><span class="star"></span>
@@ -955,9 +472,31 @@
       breakpoints: {
         575: {
           fixedWidth: '50%',
-          fixedHeight: '284px',
+          fixedHeight: '300px',
         },
       },
+    });
+
+    splide.mount();
+  }
+});
+
+</script>
+
+<script type="text/javascript">
+    
+    document.addEventListener('DOMContentLoaded', function () {
+  var reviewsSlider = document.querySelector('.review_tab');
+
+  if (reviewsSlider) {
+    var splide = new Splide(reviewsSlider, {
+      pagination: false,
+      arrows: false,
+      autoplay: true,
+      interval: 3000,
+      trimSpace: 'move',
+      focus: 'center',
+      
     });
 
     splide.mount();
