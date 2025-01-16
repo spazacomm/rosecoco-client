@@ -1,7 +1,7 @@
 
 <!DOCTYPE html>
 <html lang="{{ site:short_locale }}">
-   <head>
+    <head>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <title>{{ title ?? site:name }}</title>
@@ -27,70 +27,66 @@
       <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"></script>
      
-      <!-- <script src="https://cdn.jsdelivr.net/npm/zuck.js@latest/dist/zuck.min.js"></script> -->
-       <script async src="/assets/js/bootstrap.bundle.js" crossorigin="anonymous"></script>
+    <!--
+        <script async src="/assets/js/bootstrap.bundle.js" crossorigin="anonymous"></script>
+        <script defer src="/assets/js/fancybox.umd.js" defer></script>
+        <script defer src="/assets/js/flatpickr.min.js" defer></script>
+        <script src="/assets/js/zuck.min.js" defer></script> 
+        <script defer src="/assets/js/splide.min.js" ></script>
+    -->
 
-<script defer src="/assets/js/fancybox.umd.js" defer></script>
-<script defer src="/assets/js/flatpickr.min.js" defer></script>
-
-<script src="/assets/js/zuck.min.js" defer></script> 
-
-<script defer src="/assets/js/splide.min.js" ></script>
-
-
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide/dist/js/splide.min.js"></script>
 
     
      
 
       
-      <script>
-         const csrfToken = $('meta[name="csrf-token"]').attr('content');
-         $.ajaxSetup({
-             headers: {
-                 'X-CSRF-TOKEN': csrfToken
-             }
-         });
-      </script>
+    <script>
+        const csrfToken = $('meta[name="csrf-token"]').attr('content');
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': csrfToken
+            }
+        });
+    </script>
 
 
-       <script>
-         $(document).ready(function () {
-             $.ajax({
-                 url: '/build/stories.json',
-                 type: 'GET',
-                 success: function (data) {
-                     console.log('Stories:', data);
+    <script>
+        $(document).ready(function () {
+            $.ajax({
+                url: '/build/stories.json',
+                type: 'GET',
+                success: function (data) {
+                    console.log('Stories:', data);
 
-                     if(data.length == 0) {
+                    if(data.length == 0) {
                          $('.gallery-story-wrap').addClass('d-none');
-                     }else{
-                         $('.gallery-story-wrap').removeClass('d-none');
-                         var stories = new Zuck(document.querySelector('#stories'), {
-                             backNative: true,
-                             previousTap: true,
-                             skin: 'Snapgram',
-                             avatars: true,
-                             list: false,
-                             autoFullScreen: false,
-                             cubeEffect: true,
-                             paginationArrows: false,
-                             localStorage: true,
-                             stories: data
-                         });
-                     }
-         
-         
-                 },
-                 error: function (xhr, status, error) {
-                     console.error('Error fetching videos:', error);
-                 }
+                    }else{
+                        $('.gallery-story-wrap').removeClass('d-none');
+                        var stories = new Zuck(document.querySelector('#stories'), {
+                            backNative: true,
+                            previousTap: true,
+                            skin: 'Snapgram',
+                            avatars: true,
+                            list: false,
+                            autoFullScreen: false,
+                            cubeEffect: true,
+                            paginationArrows: false,
+                            localStorage: true,
+                            stories: data
+                        });
+                    }
+                },
+                error: function (xhr, status, error) {
+                    console.error('Error fetching videos:', error);
+                }
              });
          });
 
 
 
 
-      </script> 
+    </script> 
 
      
       <script>
