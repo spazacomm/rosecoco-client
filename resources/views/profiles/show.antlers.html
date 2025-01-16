@@ -48,39 +48,33 @@
                 <div class="gallery-single-slider-wrap position-relative">
 
                     <div class="splide splide-arrow gallery-single-slider top-0 start-0 w-100 position-absolute top-0 left-0">
-                        <span class="favourites d-flex justify-content-center align-items-center top-0 end-0 me-3 mt-3 position-absolute bg-white rounded-circle z-2">
+                       <!--  <span class="favourites d-flex justify-content-center align-items-center top-0 end-0 me-3 mt-3 position-absolute bg-white rounded-circle z-2">
                             <i class="fa-heart-f fs-4 save-favourite"></i>
                             <span class="favourites-message">
                                 <span class="text"></span>
                                 <span class="favourites-close"></span>
                             </span>
-                        </span>
+                        </span> -->
                         <div class="splide__track">
                             <div class="splide__list">
-                                 {{profile_images}}
-
-               
-                                 <div class="splide__slide">
-                                            <a class="media-holder single-profile d-block" data-fancybox="gallery"  data-caption="" href="{{url}}">
-                                                <img src="{{url}}" alt="Kim" loading="eager">
-                                            </a>
-                                        </div>
-                                 
-
-                                {{/profile_images}}
-                                                                                                                                                <div class="splide__slide">
-                                            <a class="media-holder single-profile d-block" data-fancybox="gallery"  data-caption="" href="https://crushescorts.com/storage/1808/conversions/PHOTO-2024-12-20-19-26-09-2-large.webp">
-                                                <img src="https://crushescorts.com/storage/1808/conversions/PHOTO-2024-12-20-19-26-09-2-large.webp" alt="Kim" loading="lazy">
-                                            </a>
-                                        </div>
+                                                                                                                      
                                                                                                                                            
                                                                                                                                            
                                                                                                                                             <div class="splide__slide">
-                                            <a class="media-holder single-profile d-block" data-fancybox="gallery"  data-caption="" href="{{url}}">
+                                            <a class="media-holder single-profile d-block" data-fancybox="gallery"  data-caption="" href="{{glide:url}}">
                                                 <img src="{{glide:profile_image}}" alt="Ysa" loading="eager">
                                             </a>
                                         </div>
                                         
+                                        {{profile_images}}
+
+                                             <div class="splide__slide">
+                                            <a class="media-holder single-profile d-block" data-fancybox="gallery"  data-caption="" href="{{glide:url}}">
+                                                <img src="{{glide:url}}" alt="Ysa" loading="eager">
+                                            </a>
+                                        </div>
+
+                                        {{/profile_images}}
                                                                                                                                                
                                                                     
                             </div>
@@ -118,11 +112,15 @@
                             </span>
                                 <div class="profile-info border my-4 my-lg-0 mt-lg-2 px-2 px-lg-4 py-2 rounded-10 gray-common-border gray-common-bg">
                                 <span class="row">
+
+                                        {{ attributes}}
                                                                             <span class="col-4 col-md-4 col-lg-3 py-2">
-                                            <h4 class="m-0 text-md-small f500">Availability</h4>
-                                            <h6 class="m-0 text-small text-dark-gray-9 f500">10am - 2am</h6>
+                                            <h4 class="m-0 text-md-small f500">{{key }}</h4>
+                                            <h6 class="m-0 text-small text-dark-gray-9 f500">{{value}}</h6>
                                         </span>
-                                                                            <span class="col-4 col-md-4 col-lg-3 py-2">
+
+                                           {{/attributes}}
+                                                                            <!-- <span class="col-4 col-md-4 col-lg-3 py-2">
                                             <h4 class="m-0 text-md-small f500">Bust Size</h4>
                                             <h6 class="m-0 text-small text-dark-gray-9 f500">34B (natural)</h6>
                                         </span>
@@ -157,7 +155,7 @@
                                                                             <span class="col-4 col-md-4 col-lg-3 py-2">
                                             <h4 class="m-0 text-md-small f500">Nearest Tube</h4>
                                             <h6 class="m-0 text-small text-dark-gray-9 f500">Gloucester Road</h6>
-                                        </span>
+                                        </span> -->
                                                                     </span>
                                 </div>
                             </div>
@@ -174,38 +172,24 @@
                                             <div class="col-4 col-xl-3 text-md-small f500 text-dark-gray-7">Incall</div>
                                             <div class="col-4 col-xl-3 text-md-small f500 text-dark-gray-7">Outcall</div>
                                         </div>
-                                                                                    <div class="d-flex py-2 border-bottom gray-common-border">
-                                                <div class="col-4 col-xl-6 text-md-small f500 text-white text-uppercase">1 Hour</div>
-                                                <div class="col-4 col-xl-3 text-md-small f500 text-white">£250</div>
-                                                <div class="col-4 col-xl-3 text-md-small f500 text-white">£300</div>
-                                            </div>
 
+                                            {{rates}}
                                                                                     <div class="d-flex py-2 border-bottom gray-common-border">
-                                                <div class="col-4 col-xl-6 text-md-small f500 text-white text-uppercase">2 Hours</div>
-                                                <div class="col-4 col-xl-3 text-md-small f500 text-white">£500</div>
-                                                <div class="col-4 col-xl-3 text-md-small f500 text-white">£600</div>
+                                                <div class="col-4 col-xl-6 text-md-small f500 text-white text-uppercase">{{duration}}</div>
+                                                <div class="col-4 col-xl-3 text-md-small f500 text-white">Ksh. {{incall_rate}}</div>
+                                                <div class="col-4 col-xl-3 text-md-small f500 text-white">Ksh. {{outcall_rate}}</div>
                                             </div>
+                                            {{/rates}}
 
-                                                                                    <div class="d-flex py-2 border-bottom gray-common-border">
-                                                <div class="col-4 col-xl-6 text-md-small f500 text-white text-uppercase">3 Hours </div>
-                                                <div class="col-4 col-xl-3 text-md-small f500 text-white">£750</div>
-                                                <div class="col-4 col-xl-3 text-md-small f500 text-white">£900</div>
-                                            </div>
-
-                                                                                    <div class="d-flex py-2 border-bottom gray-common-border">
-                                                <div class="col-4 col-xl-6 text-md-small f500 text-white text-uppercase">Overnight</div>
-                                                <div class="col-4 col-xl-3 text-md-small f500 text-white">£2,000</div>
-                                                <div class="col-4 col-xl-3 text-md-small f500 text-white">£2,000</div>
-                                            </div>
-
-                                                                                <a href="tel:+07478770704" class="d-flex mb-2 mt-4 align-items-center text-decoration-none bg-dark-primary-7 text-white rounded-10 call-info" aria-label="Click Here to call us">
+                                                                                   
+                                                                                <a href="tel:+{{phone_number}}" class="d-flex mb-2 mt-4 align-items-center text-decoration-none bg-dark-primary-7 text-white rounded-10 call-info" aria-label="Click Here to call us">
                                             <span class="fa-phone-black fs-5"></span>
-                                            <span class="mx-auto">07478770704</span>
+                                            <span class="mx-auto">{{phone_number}}</span>
                                         </a>
                                         <a target="_blank" class="d-flex align-items-center text-decoration-none bg-primary text-white rounded-10 call-info
-                                        whatapp-bg" href="https://wa.me/7478770704?text=Hey, I’d like to book Ysa. When is she available?" aria-label="Click Here to chat/bookonline">
+                                        whatapp-bg" href="https://wa.me/{{whatsapp_number}}?text=Hey, I’d like to book Ysa. When is she available?" aria-label="Click Here to chat/bookonline">
                                             <span class="fa-whatsapp fs-5"></span>
-                                            <span class="mx-auto">Chat with us on WhatsApp</span>
+                                            <span class="mx-auto">Chat on WhatsApp</span>
                                         </a>
                                     </div>
                                 </div>
@@ -951,13 +935,34 @@
     </div>
 </div>
 
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-      new Splide('.gallery-single-slider', {
-        pagination: true,
-        arrows: false,
-      }).mount();
-    });
-  </script>
 
+
+<script type="text/javascript">
+    
+    document.addEventListener('DOMContentLoaded', function () {
+  var profileImgSlider = document.querySelector('.gallery-single-slider');
+
+  if (profileImgSlider) {
+    var splide = new Splide(profileImgSlider, {
+      pagination: false,
+      arrows: true,
+      autoplay: false,
+      interval: 3000,
+      fixedWidth: '318px',
+      fixedHeight: '463px',
+      trimSpace: 'move',
+      focus: 'center',
+      breakpoints: {
+        575: {
+          fixedWidth: '50%',
+          fixedHeight: '284px',
+        },
+      },
+    });
+
+    splide.mount();
+  }
+});
+
+</script>
 

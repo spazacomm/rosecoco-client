@@ -69,6 +69,26 @@ tabs:
               type: toggle
               display: outcall
               width: 50
+          -
+            handle: nationality
+            field:
+              type: terms
+              taxonomies:
+                - nationality
+              display: Nationality
+              mode: select
+              width: 50
+              max_items: 1
+          -
+            handle: city
+            field:
+              type: terms
+              taxonomies:
+                - city
+              display: City
+              mode: select
+              width: 50
+              max_items: 1
       -
         display: Atributes
         instructions: 'Personal attributes'
@@ -83,7 +103,16 @@ tabs:
                   value: Age
                 -
                   key: body-type
-                  value: 'body Type'
+                  value: 'Body Type'
+                -
+                  key: nationality
+                  value: Nationality
+                -
+                  key: city
+                  value: City
+                -
+                  key: address
+                  value: Address
               type: array
               display: Attributes
       -
@@ -130,6 +159,38 @@ tabs:
               mode: select
       -
         display: 'Rates section'
+        fields:
+          -
+            handle: rates
+            field:
+              type: replicator
+              display: Rates
+              sets:
+                new_rate_group:
+                  display: 'New Rate Group'
+                  sets:
+                    new_rate:
+                      display: 'New Rate'
+                      fields:
+                        -
+                          handle: duration
+                          field:
+                            default: '2 hours'
+                            type: text
+                            display: Duration
+                            width: 33
+                        -
+                          handle: incall_rate
+                          field:
+                            type: float
+                            display: 'Incall rate'
+                            width: 33
+                        -
+                          handle: outcall_rate
+                          field:
+                            type: float
+                            display: 'Outcall rate'
+                            width: 33
   sidebar:
     display: Sidebar
     sections:
@@ -159,3 +220,20 @@ tabs:
                 - tags
               display: Tags
               mode: select
+          -
+            handle: date
+            field:
+              type: date
+              required: true
+              default: now
+              validate:
+                - required
+          -
+            handle: parent
+            field:
+              type: entries
+              collections:
+                - profiles
+              max_items: 1
+              listable: false
+              localizable: true

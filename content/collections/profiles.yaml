@@ -8,6 +8,8 @@ taxonomies:
   - locations
   - services
   - tags
+  - city
+  - nationality
 revisions: false
 route: '{parent_uri}/{slug}'
 date: true
