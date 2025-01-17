@@ -1,0 +1,412 @@
+<div class="container-fluid px-0 media-holder media-holder-overlay">
+        <div class="banner banner-home position-relative">
+            <picture class="hero hero-main position-absolute w-100 h-100 start-0">
+                <source media="(min-width: 768px)" srcset="https://www.crushescorts.com/frontend/images/banner-d.webp">
+                <img src="https://www.crushescorts.com/frontend/images/banner-m.webp" alt="Banner Image">
+            </picture>
+            <div class="banner-bottom mb-b-bottom z-2 position-relative pb-3">
+                <div class="container">
+                    <div class="row m-0">
+                        <div class="d-flex align-items-center justify-content-between position-relative z-1">
+                            <div class="lc-body rounded-5 d-flex align-items-center position-relative">
+                                <div class="dropdown w-100">
+                                    <button data-bs-toggle="modal" data-bs-target="#escortsmodal"
+                                            class="btn border-0 text-white px-0 rounded-5 w-100 fw-normal" type="button"
+                                            data-bs-toggle="dropdown" aria-expanded="false">
+                                        <div class="d-flex align-items-center">
+                                            <i class="fa-search fs-5"></i>
+                                            <div class="d-flex flex-column align-items-start justify-content-start ms-2 ms-lg-4">
+                                                <span class="btn-text">What do you fancy tonight?</span>
+                                                <span class="btn-small">Locations • Categories</span>
+                                            </div>
+                                        </div>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="filter-menu">
+                                <button class="text-white rounded-3" data-bs-toggle="modal"
+                                        data-bs-target="#filtermodal" aria-label="Filter">
+                                    <i class="fa-filter"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="pt-3 position-relative z-2 hero-text">
+                <div class="container pt-5">
+                    <div class="row m-0 pt-5">
+                        <div class="col-lg-12 col-md-12">
+                            <div class="cms">
+                                <p>                                        <p>Duo</p>
+                                    </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row m-0">
+                    <div class="d-flex mb-3 mt-lg-2 mb-lg-3 gallery-story-wrap position-relative align-items-center">
+                        <div class="container">
+    <div class="row mb-3 mt-lg-2 mb-lg-3">
+        <div class="d-flex  gallery-story-wrap position-relative align-items-center d-none">
+            <h5>Latest Stories</h5>
+
+            <div id="stories" class="pb-0"></div>
+        </div>
+    </div>
+</div>
+                    </div>
+                </div>
+            </div>
+            <div class="tag-menu box-shadow d-flex mb-3 pb-2 z-1 position-relative align-items-center mb-view">
+                <div class="container">
+                    <div class="row m-0">
+                        <span class="d-flex gap gap-2 sub-menu-wrap position-relative align-items-center">
+                                                            <a class="py-2 px-3 text-white text-small border border-dark-gray-5 rounded-pill"
+                                   href="https://www.crushescorts.com/categories/a-level-escorts">A Level Escorts</a>
+                                                                                            <a class="py-2 px-3 text-white text-small border border-dark-gray-5 rounded-pill"
+                                   href="https://www.crushescorts.com/categories/adventurous-escorts">Adventurous Escorts</a>
+                                                                                            <a class="py-2 px-3 text-white text-small border border-dark-gray-5 rounded-pill"
+                                   href="https://www.crushescorts.com/categories/bdsm-escorts">BDSM Escorts London</a>
+                                                                                            <a class="py-2 px-3 text-white text-small border border-dark-gray-5 rounded-pill"
+                                   href="https://www.crushescorts.com/categories/blonde-escorts">Blonde Escorts</a>
+                                                                                            </span>
+                        <span data-bs-toggle="modal" data-bs-target="#escortsmodal"
+                              class="position-absolute sm-fixed d-flex align-items-center text-center border border-dark-gray-5 rounded-circle top-0 text-lg-small">+19 more</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="banner-bottom desktop-view z-2 position-relative pb-3 mb-1 mb-lg-4">
+        <div class="container">
+            <div class="row m-0">
+                <div class="col-lg-12">
+                    <div class="d-flex align-items-center justify-content-between position-relative z-1">
+                       <span>
+                            <p class="text-white mb-0 totalProfileCount">2 Live Profiles</p>
+                        </span>
+
+                        <div class="filter-menu desk-view">
+                            <button class="text-white rounded-3" data-bs-toggle="modal" data-bs-target="#filtermodal" aria-label="Filter">
+                                <span class="f500">Filters</span> <i class="fa-filter"></i>
+                            </button>
+                        </div>
+                        <div class="filter-menu d-lg-none">
+                            <button class="text-white btn btn-primary " data-bs-toggle="modal" data-bs-target="#filtermodal" aria-label="Filter">
+                                <i class="fa-filter"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- Modal -->
+<div class="modal fade filter-caoffcanvas offcanvas-filter" id="filtermodal" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content bg-main-bg">
+            <div class="modal-header justify-content-center border-dark-gray-2">
+                <button type="button" class="position-absolute start-0 border-0 bg-main-bg px-3" data-bs-dismiss="modal" aria-label="Close"><span class="fa-close-small text-white"></span></button>
+                <h3 class="modal-title fs-5" id="staticBackdropLabel">Filters</h3>
+            </div>
+            <div class="modal-body offcanvas-body">
+                <div class="filter-col mb-4 pb-4 border-bottom border-dark-gray-1">
+                    <div class="fonts-sub fs-6 f300 text-black-2 mb-3">Sort</div>
+                    <ul class="sort-filter-list filter-list">
+
+
+
+
+
+
+
+                        <li class="filternationality d-flex justify-content-between mb-2">
+                            <label for="available" class="">Available now</label>
+                            <span>
+                                <input id="available" class="custom-check" type="radio" name="sortby" value="available">
+                                <label for="available" class="custom-radio__label block"></label>
+                            </span>
+                        </li>
+                        <li class="filternationality d-flex justify-content-between mb-2">
+                            <label for="newest" class="">Newest</label>
+                            <span>
+                                <input id="newest" class="custom-check" type="radio" name="sortby" value="newest">
+                                <label for="newest" class="custom-radio__label block"></label>
+                            </span>
+                        </li>
+                        <li class="filternationality d-flex justify-content-between mb-2">
+                            <label for="price_lowHigh" class="">Price: Low-High</label>
+                            <span>
+                                <input id="price_lowHigh" class="custom-check" type="radio" name="sortby" value="price_lowHigh">
+                                <label for="price_lowHigh" class="custom-radio__label block"></label>
+                            </span>
+                        </li>
+                        <li class="filternationality d-flex justify-content-between mb-2">
+                            <label for="price_highLow" class="">Price: High-Low</label>
+                            <span>
+                                <input id="price_highLow" class="custom-check" type="radio" name="sortby" value="price_highLow">
+                                <label for="price_highLow" class="custom-radio__label block"></label>
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+
+
+
+
+
+
+
+
+                <div class="filter-col mb-4 pb-4 border-bottom border-dark-gray-2">
+                    <div class="fonts-sub fs-6 f300 text-black-2 mb-3">Price</div>
+                    <div class="d-flex flex-wrap align-content-start grid gap-2">
+                                                    <button type="button" data-price="200-250" class="bg-dark-gray-1 border border-dark-gray-2 rounded py-2 px-3 text-white filter-rate">£200-250</button>
+                                                    <button type="button" data-price="250-300" class="bg-dark-gray-1 border border-dark-gray-2 rounded py-2 px-3 text-white filter-rate">£250-300</button>
+                                                    <button type="button" data-price="300+" class="bg-dark-gray-1 border border-dark-gray-2 rounded py-2 px-3 text-white filter-rate">£300+</button>
+                                                
+                    </div>
+                </div>
+                <div class="filter-col mb-4 pb-4 border-bottom border-dark-gray-2">
+                    <div class="fonts-sub fs-6 f300 text-black-2 mb-3">Hair Colour</div>
+                    <ul class="sort-filter-list filter-list">
+                                                    <li class="filterhaircolor d-flex justify-content-between mb-2">
+                                <label for="Blonde" class="">Blonde</label>
+                                <span>
+                                    <input id="Blonde" class="custom-check" type="checkbox" name="colour[]" value="Blonde">
+                                    <label for="Blonde" class="custom-check__label block"></label>
+                                </span>
+                            </li>
+                                                    <li class="filterhaircolor d-flex justify-content-between mb-2">
+                                <label for="Brunette" class="">Brunette</label>
+                                <span>
+                                    <input id="Brunette" class="custom-check" type="checkbox" name="colour[]" value="Brunette">
+                                    <label for="Brunette" class="custom-check__label block"></label>
+                                </span>
+                            </li>
+                                                    <li class="filterhaircolor d-flex justify-content-between mb-2">
+                                <label for="Redhead" class="">Redhead</label>
+                                <span>
+                                    <input id="Redhead" class="custom-check" type="checkbox" name="colour[]" value="Redhead">
+                                    <label for="Redhead" class="custom-check__label block"></label>
+                                </span>
+                            </li>
+                                                    <li class="filterhaircolor d-flex justify-content-between mb-2">
+                                <label for="Black" class="">Black</label>
+                                <span>
+                                    <input id="Black" class="custom-check" type="checkbox" name="colour[]" value="Black">
+                                    <label for="Black" class="custom-check__label block"></label>
+                                </span>
+                            </li>
+                                                    <li class="filterhaircolor d-flex justify-content-between mb-2">
+                                <label for="Others" class="">Others</label>
+                                <span>
+                                    <input id="Others" class="custom-check" type="checkbox" name="colour[]" value="Others">
+                                    <label for="Others" class="custom-check__label block"></label>
+                                </span>
+                            </li>
+                                                
+                    </ul>
+                </div>
+                <div class="filter-col">
+                    <div class="fonts-sub fs-6 f300 text-black-2 mb-3">Nationality</div>
+                    <ul class="sort-filter-list filter-list">
+                                                    <li class="filternationality d-flex justify-content-between mb-2">
+                                <label for="British" class="">British</label>
+                                <span>
+                                    <input id="British" class="custom-check" type="checkbox" name="nationality[]" value="British">
+                                    <label for="British" class="custom-check__label block"></label>
+                                </span>
+                            </li>
+                                                    <li class="filternationality d-flex justify-content-between mb-2">
+                                <label for="European" class="">European</label>
+                                <span>
+                                    <input id="European" class="custom-check" type="checkbox" name="nationality[]" value="European">
+                                    <label for="European" class="custom-check__label block"></label>
+                                </span>
+                            </li>
+                                                    <li class="filternationality d-flex justify-content-between mb-2">
+                                <label for="Asian" class="">Asian</label>
+                                <span>
+                                    <input id="Asian" class="custom-check" type="checkbox" name="nationality[]" value="Asian">
+                                    <label for="Asian" class="custom-check__label block"></label>
+                                </span>
+                            </li>
+                                                    <li class="filternationality d-flex justify-content-between mb-2">
+                                <label for="African" class="">African</label>
+                                <span>
+                                    <input id="African" class="custom-check" type="checkbox" name="nationality[]" value="African">
+                                    <label for="African" class="custom-check__label block"></label>
+                                </span>
+                            </li>
+                                                    <li class="filternationality d-flex justify-content-between mb-2">
+                                <label for="Other" class="">Other</label>
+                                <span>
+                                    <input id="Other" class="custom-check" type="checkbox" name="nationality[]" value="Other">
+                                    <label for="Other" class="custom-check__label block"></label>
+                                </span>
+                            </li>
+                                                
+                    </ul>
+                    
+                    
+                </div>
+            </div>
+            <div class="modal-footer border-top border-dark-gray-2 justify-content-between">
+                <button type="reset" class="btn bg-main-bg text-md-small text-white f400 d-flex align-items-center px-0 clear_filter border-0">Clear all</button>
+                <span class="bg-primary rounded text-white text-center fonts-sub f400 py-3 px-4">Show  profiles</span>
+            </div>
+        </div>
+    </div>
+</div>
+    </div>
+    <div class="container pb-4 pb-md-5 mb-md-3">
+        <div class="row" id="profile-gallery">
+                                                <div class="col-lg-6 gallery-item-duo">
+        <div class="row mx-0 position-relative mt-2 mb-4">
+            <div class="col-12 px-0">
+                    <span class="d-block mt-3 position-relative">
+                        <span class="d-block f500 mb-2 text-md-small text-white lh-1 text-uppercase d-block location">£400</span>
+                        <span class="favourites f500 d-flex justify-content-center align-items-center top-0 end-0 position-absolute">
+                            <i class="fa-star me-md-1"></i>
+                            <span class="favourites-message">
+                                <span class="text">0</span>
+                                <span class="favourites-close"></span>
+                            </span>
+                        </span>
+                    </span>
+            </div>
+            <div class="col-6 px-0">
+                <a href="https://www.crushescorts.com/duo-profile/anne-marii-alma">
+                        <span class="media-holder d-block position-relative">
+                            <img src="https://crushescorts.com/storage/1631/conversions/imageDWwQF8-large.webp" alt="Anne Marii">
+
+
+
+
+
+
+
+
+
+
+                        </span>
+                </a>
+                <span class="d-block mt-3 position-relative">
+                        <span class="d-block f400 mb-1"><a class="h4 text-primary-light f300 text-uppercase" href="#">Anne Marii</a></span>
+                        <span class="d-block text-small text-uppercase f500 text-white lh-1 mb-1 tagline"> South Kensington Escorts</span>
+
+                    </span>
+            </div>
+            <div class="col-6 px-0">
+                <a href="https://www.crushescorts.com/duo-profile/anne-marii-alma">
+                        <span class="media-holder d-block position-relative">
+                            <img src="https://crushescorts.com/storage/1743/conversions/alma3-large.webp" alt="Alma">
+
+
+
+
+
+
+
+
+
+
+                        </span>
+                </a>
+                <span class="d-block mt-3 position-relative">
+                        <span class="d-block f400 mb-1"><a class="h4 text-primary-light f300 text-uppercase" href="#">Alma</a></span>
+                        <span class="d-block text-small text-uppercase f500 text-white lh-1 mb-1 tagline"> Bayswater Escorts</span>
+
+                    </span>
+            </div>
+        </div>
+    </div>
+                                    <div class="col-lg-6 gallery-item-duo">
+        <div class="row mx-0 position-relative mt-2 mb-4">
+            <div class="col-12 px-0">
+                    <span class="d-block mt-3 position-relative">
+                        <span class="d-block f500 mb-2 text-md-small text-white lh-1 text-uppercase d-block location">£500</span>
+                        <span class="favourites f500 d-flex justify-content-center align-items-center top-0 end-0 position-absolute">
+                            <i class="fa-star me-md-1"></i>
+                            <span class="favourites-message">
+                                <span class="text">0</span>
+                                <span class="favourites-close"></span>
+                            </span>
+                        </span>
+                    </span>
+            </div>
+            <div class="col-6 px-0">
+                <a href="https://www.crushescorts.com/duo-profile/natasha-ysa">
+                        <span class="media-holder d-block position-relative">
+                            <img src="https://crushescorts.com/storage/1201/conversions/image94vWxr-large.webp" alt="Natasha">
+
+
+
+
+
+
+
+
+
+
+                        </span>
+                </a>
+                <span class="d-block mt-3 position-relative">
+                        <span class="d-block f400 mb-1"><a class="h4 text-primary-light f300 text-uppercase" href="#">Natasha</a></span>
+                        <span class="d-block text-small text-uppercase f500 text-white lh-1 mb-1 tagline"> Bayswater Escorts</span>
+
+                    </span>
+            </div>
+            <div class="col-6 px-0">
+                <a href="https://www.crushescorts.com/duo-profile/natasha-ysa">
+                        <span class="media-holder d-block position-relative">
+                            <img src="https://crushescorts.com/storage/945/conversions/imageZshF9g-large.webp" alt="Ysa">
+
+
+
+
+
+
+
+
+
+
+                        </span>
+                </a>
+                <span class="d-block mt-3 position-relative">
+                        <span class="d-block f400 mb-1"><a class="h4 text-primary-light f300 text-uppercase" href="#">Ysa</a></span>
+                        <span class="d-block text-small text-uppercase f500 text-white lh-1 mb-1 tagline"> South Kensington Escorts</span>
+
+                    </span>
+            </div>
+        </div>
+    </div>
+                                    </div>
+
+    </div>
+
+    <div class="container pb-md-4 pb-4">
+        <div class="row">
+            <div class="col-lg-12 pb-4">
+                <div class="cms">
+                                                                    <h2>Duo Escorts</h2>
+                        <p>Find the hottest duo London escorts here at Crush Escorts, we have some of the most exciting duo&rsquo;s to provide you with a sensational service. Two is always better than one and with the fabulous combination of ladies we have available for duo escort services you are likely to meet your match!</p>
+
+<p>Choose from our selection below and find all kinds of seductive duo London escorts available for booking now at our agency. If you are feeling adventurous try looking through some of the duo&rsquo;s we have managed to piece together, each duo works well with their partner so you
+                                                    <div class="collapse" id="collapseExample" style="">
+                                 can get the full attention you deserve.</p>
+
+<p>Each of our London duo escorts are incredibly confident and outgoing meaning they work very well together to provide our clients with an attentive service which you will not find anywhere else!</p>
+                            </div>
+                            <button class="btn btn-readmore text-underline f300 p-0 pt-3 text-white border-0 text-md-small collapsed"
+                                    type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample"
+                                    aria-expanded="false" aria-controls="collapseExample"></button>
+                                                            </div>
+            </div>
+        </div>
+    </div>

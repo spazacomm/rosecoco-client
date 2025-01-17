@@ -1,4 +1,4 @@
-<header class="header header-min">
+<header class="header header-min ">
          <div class="container">
             <div class="row m-0">
                <div class="header-min-innr">
@@ -7,15 +7,12 @@
                   </a>
                   <nav class="nav nav-min">
                      <ul class="nav-min-menu">
+                        {{nav:main_nav}}
                         <li>
-                           <a href="/"> Escorts</a>
+                           <a href="{{url}}"> {{title}}</a>
                         </li>
-                        <li><a href="/duo-gallery">Duo Gallery</a></li>
-                        <li><a href="/locations">Locations</a></li>
-                        <li><a href="/categories">Categories</a></li>
-                        <li><a href="/recruitment">Work with us</a></li>
-                        <li><a href="/faqs">FAQS</a></li>
-                        <li><a href="/news">News</a></li>
+                        {{/nav:main_nav}}
+                        
                      </ul>
                   </nav>
                   <div class="d-flex align-items-end flex-column desk-view">

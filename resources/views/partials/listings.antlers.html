@@ -4,7 +4,7 @@
                   <div class="col-lg-12">
                      <div class="d-flex align-items-center justify-content-between position-relative z-1">
                         <span>
-                           <p class="text-white mb-0 totalProfileCount">67 Live Profiles</p>
+                           <p class="text-white mb-0 totalProfileCount">{{profiles | length}} Live Profiles</p>
                         </span>
                         <div class="filter-menu desk-view">
                            <button class="text-white rounded-3" data-bs-toggle="modal" data-bs-target="#filtermodal" aria-label="Filter">
@@ -47,11 +47,11 @@
                      </div>
                      
                      <div class="filter-col mb-4 pb-4 border-bottom border-dark-gray-2">
-                        <div class="fonts-sub fs-6 f300 text-black-2 mb-3">Locations</div>
+                        <div class="fonts-sub fs-6 f300 text-black-2 mb-3">Categories</div>
                         <div class="d-flex flex-wrap align-content-start grid gap-2">
-                           {{taxonomy:locations}}
+                           {{taxonomy:categories}}
                            <button type="button" data-price="200-250" class="bg-dark-gray-1 border border-dark-gray-2 rounded py-2 px-3 text-white filter-rate">{{title}}</button>
-                           {{/taxonomy:locations}}
+                           {{/taxonomy:categories}}
                           
                         </div>
                      </div>
@@ -79,14 +79,22 @@
                </div>
                <span class="d-block mt-3 position-relative">
                <span class="d-block f400 mb-1 pe-4 me-2"><a class="h4 text-primary-light f500 text-uppercase"  >{{title}}</a></span>
-               <span class="d-block text-small text-uppercase f500 text-white lh-1 mb-1 tagline"> {{gender }} {{title}} {{/gender}}, {{orientation}} {{title}} {{/orientation}}</span>
-               <span class="text-md-small text-white f500 lh-1 text-uppercase d-block location">£200 / £250</span>
+               <span class="d-block text-small text-uppercase f500 text-white lh-1 mb-1 tagline"> {{city}} {{title}} {{/city}}</span>
+               <span class="text-md-small text-white f500 lh-1  d-block location">{{if incall}} Incall {{/if}} {{if outcall}} / Outcall {{/if}}</span>
                <span class="favourites d-flex justify-content-center align-items-center top-0 end-0 position-absolute">
+
+                  {{ if reviews | length > 0 }}
+        {{ total_rating = reviews | pluck:rating | sum }}
+        {{ total_items = reviews | length }}
+        {{ average_rating = (total_rating / total_items) | round:0 }}
+    {{ else }}
+        {{ average_rating = 0 }}
+    {{ /if }}
+
+                  {{loop times="{{average_rating}}"}}
                   <i class="fa-star me-md-1"></i>
-                  <span class="favourites-message">
-                     <span class="text">0</span>
-                     <span class="favourites-close"></span>
-                  </span>
+                  {{/loop}}
+                  
                </span>
                </span>
             </div>

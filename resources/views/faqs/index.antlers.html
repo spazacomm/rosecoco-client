@@ -1,0 +1,34 @@
+<a href="/" class="position-fixed d-lg-none back-btn start-0 border-0 bg-main-bg px-3 pt-4"><span class="fa-back text-white"></span></a>
+    <div class="common-section">
+        <div class="container-small mx-auto px-lg-5">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h4 class="fs-4 mb-1 h-fonts f600">How can we help?</h4>
+                    <p class="text-dark-gray-9">Frequently Asked Questions</p>
+                    <div class="accordion" id="accordionExample">
+
+                                                    {{collection:faqs}}
+                                                    <div class="accordion-item border-0 border-bottom border-dark-gray-2 bg-transparent rounded-0">
+                                <button class="accordion-button fs-6 py-3 text-white f500 border-0 bg-transparent shadow-none p-0 collapsed" type="button"
+                                        data-bs-toggle="collapse" data-bs-target="#{{slug}}" aria-expanded="false" aria-controls="{{slug}}">
+                                    {{title}}
+                                </button>
+                                <div id="{{slug}}" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body px-md-3 px-0 mb-4">
+                                        <div class="row text-dark-gray-9">
+                                            {{content}}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {{/collection:faqs}}
+
+                                                   
+
+                                            </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="divider mx-auto border-top border-dark-gray-1 my-5 d-md-block d-none w-100"></div>
