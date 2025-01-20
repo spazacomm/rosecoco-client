@@ -16,11 +16,11 @@
                <div class="container pt-5">
                   <div class="row m-0 pt-5">
                      <div class="col-lg-12 col-md-12">
-                        <h1>{{term}} Escorts</h1>
+                        <h1>{{title}} </h1>
                         
                         <div class="cms">
                            <p>                                        
-                           <p>Looking for&nbsp;<strong>escorts</strong>&nbsp;near you? We have a wide range of local escorts available 24/7 for incall and outcall escort services. Browse our full selection to find the perfect escort. Each escort offers a selection of services they specialise in and enjoy providing, including kinks, fetishes, dates and experiences. To book, simply find an escort who matches your desires, then give them a call.</p>
+                           {{content}}
                            </p>
                         </div>
                      </div>
@@ -59,7 +59,12 @@
 <div class="container pb-4">
          <div class="row m-0" id="profile-gallery">
 
-            {{collection:profiles taxonomy:categories="{{term:slug}}"}}
+
+            {{ if collection:profiles taxonomy:categories="{{slug}}" | length == 0 }}
+   <p>No escorts listed in this category.</p>
+{{else}}
+
+            {{collection:profiles taxonomy:categories="{{slug}}"}}
             <div class="col-md-4 col-lg-3 col-6 mb-4 pb-md-2 px-md-2 px-2 gallery-item">
                <div class="d-block position-relative">
                   <div class="staff-gallery">
@@ -90,6 +95,10 @@
                </span>
             </div>
             {{/collection:profiles}}
+
+
+            {{ /if }}
+
           
          </div>
       </div>

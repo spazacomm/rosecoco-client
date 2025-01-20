@@ -59,37 +59,42 @@
 <div class="container pb-4">
          <div class="row m-0" id="profile-gallery">
 
-            {{collection:profiles taxonomy:locations="{{slug}}"}}
-            <div class="col-md-4 col-lg-3 col-6 mb-4 pb-md-2 px-md-2 px-2 gallery-item">
-               <div class="d-block position-relative">
-                  <div class="staff-gallery">
-                     <a class="media-holder d-block" href="{{url}}"  key="">
-                     <img src="{{glide:profile_image}}" alt="Staff Image"   loading="lazy" style="border-radius: 7px;">
-                     </a>
-                  </div>
-               </div>
-               <span class="d-block mt-3 position-relative">
-               <span class="d-block f400 mb-1 pe-4 me-2"><a class="h4 text-primary-light f500 text-uppercase"  >{{title}}</a></span>
-               <span class="d-block text-small text-uppercase f500 text-white lh-1 mb-1 tagline"> {{city}} {{title}} {{/city}}</span>
-               <span class="text-md-small text-white f500 lh-1  d-block location">{{if incall}} Incall {{/if}} {{if outcall}} / Outcall {{/if}}</span>
-               <span class="favourites d-flex justify-content-center align-items-center top-0 end-0 position-absolute">
+          {{collection:profiles taxonomy:locations="{{slug}}"}}
+   <div class="col-md-4 col-lg-3 col-6 mb-4 pb-md-2 px-md-2 px-2 gallery-item">
+      <div class="d-block position-relative">
+         <div class="staff-gallery">
+            <a class="media-holder d-block" href="{{url}}" key="">
+               <img src="{{glide:profile_image}}" alt="Staff Image" loading="lazy" style="border-radius: 7px;">
+            </a>
+         </div>
+      </div>
+      <span class="d-block mt-3 position-relative">
+         <span class="d-block f400 mb-1 pe-4 me-2"><a class="h4 text-primary-light f500 text-uppercase">{{title}}</a></span>
+         <span class="d-block text-small text-uppercase f500 text-white lh-1 mb-1 tagline">{{city}} {{title}} {{/city}}</span>
+         <span class="text-md-small text-white f500 lh-1 d-block location">{{if incall}} Incall {{/if}} {{if outcall}} / Outcall {{/if}}</span>
+         <span class="favourites d-flex justify-content-center align-items-center top-0 end-0 position-absolute">
 
-                  {{ if reviews | length > 0 }}
-        {{ total_rating = reviews | pluck:rating | sum }}
-        {{ total_items = reviews | length }}
-        {{ average_rating = (total_rating / total_items) | round:0 }}
-    {{ else }}
-        {{ average_rating = 0 }}
-    {{ /if }}
+            {{ if reviews | length > 0 }}
+                {{ total_rating = reviews | pluck:rating | sum }}
+                {{ total_items = reviews | length }}
+                {{ average_rating = (total_rating / total_items) | round:0 }}
+            {{ else }}
+                {{ average_rating = 0 }}
+            {{ /if }}
 
-                  {{loop times="{{average_rating}}"}}
-                  <i class="fa-star me-md-1"></i>
-                  {{/loop}}
-                  
-               </span>
-               </span>
-            </div>
-            {{/collection:profiles}}
+            {{loop times="{{average_rating}}"}}
+                <i class="fa-star me-md-1"></i>
+            {{/loop}}
+
+         </span>
+      </span>
+   </div>
+{{/collection:profiles}}
+
+{{ if collection:profiles taxonomy:locations="{{slug}}" | length == 0 }}
+   <p>No escorts listed in this location.</p>
+{{ /if }}
+
           
          </div>
       </div>
