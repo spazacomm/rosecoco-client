@@ -1,1 +1,8 @@
 title: Locations
+preview_targets:
+  -
+    label: Term
+    url: '{permalink}'
+    refresh: true
+template: locations/index
+layout: layout

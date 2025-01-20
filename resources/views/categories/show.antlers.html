@@ -1,0 +1,95 @@
+<div class="container-fluid px-0 media-holder media-holder-overlay">
+         <div class="banner banner-home position-relative">
+            <link rel="preload" href="https://www.crushescorts.com/frontend/images/banner-m.webp" as="image">
+            <picture class="hero hero-main position-absolute w-100 h-100 start-0">
+               <source media="(min-width: 768px)" srcset="https://www.crushescorts.com/frontend/images/banner-d.webp">
+               <img src="/assets/images/banner-m.webp" loading="eager" alt="Banner Image">
+            </picture>
+            <div class="banner-bottom mb-b-bottom z-2 position-relative pb-3">
+               <div class="container">
+                  <div class="row m-0">
+                     &nbsp;
+                  </div>
+               </div>
+            </div>
+            <div class="pt-3 position-relative z-2 hero-text">
+               <div class="container pt-5">
+                  <div class="row m-0 pt-5">
+                     <div class="col-lg-12 col-md-12">
+                        <h1>{{term}} Escorts</h1>
+                        
+                        <div class="cms">
+                           <p>                                        
+                           <p>Looking for&nbsp;<strong>escorts</strong>&nbsp;near you? We have a wide range of local escorts available 24/7 for incall and outcall escort services. Browse our full selection to find the perfect escort. Each escort offers a selection of services they specialise in and enjoy providing, including kinks, fetishes, dates and experiences. To book, simply find an escort who matches your desires, then give them a call.</p>
+                           </p>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="container">
+               <div class="row mb-3 mt-lg-2 mb-lg-3">
+                  <div class="d-flex  gallery-story-wrap position-relative align-items-center d-none">
+                     <h5>Latest Stories</h5>
+                     <div id="stories" class="pb-0"></div>
+                  </div>
+               </div>
+            </div>
+            <div class="tag-menu box-shadow d-flex mb-3 pb-2 z-1 position-relative align-items-center mb-view">
+               <div class="container">
+                  <div class="row ">
+                     <span class="d-flex gap gap-2 sub-menu-wrap position-relative align-items-center py-3" style="width: calc(100% - 10px);">
+                        {{taxonomy:categories}}
+                     <a class="py-2 px-3 text-white text-small text-nowrap border border-dark-gray-5 rounded-pill"
+                        href="{{url}}">{{title}}  </a>
+                        {{/taxonomy:categories}}
+               
+                     </span>
+                     <!-- <a href="/locations"
+                        class="position-absolute sm-fixed d-flex align-items-center text-center border border-dark-gray-5 rounded-circle top-0 text-lg-small">
+                     more</a> -->
+                  </div>
+               </div>
+            </div>
+         </div>
+        
+      </div>
+
+
+<div class="container pb-4">
+         <div class="row m-0" id="profile-gallery">
+
+            {{collection:profiles taxonomy:categories="{{term:slug}}"}}
+            <div class="col-md-4 col-lg-3 col-6 mb-4 pb-md-2 px-md-2 px-2 gallery-item">
+               <div class="d-block position-relative">
+                  <div class="staff-gallery">
+                     <a class="media-holder d-block" href="{{url}}"  key="">
+                     <img src="{{glide:profile_image}}" alt="Staff Image"   loading="lazy" style="border-radius: 7px;">
+                     </a>
+                  </div>
+               </div>
+               <span class="d-block mt-3 position-relative">
+               <span class="d-block f400 mb-1 pe-4 me-2"><a class="h4 text-primary-light f500 text-uppercase"  >{{title}}</a></span>
+               <span class="d-block text-small text-uppercase f500 text-white lh-1 mb-1 tagline"> {{city}} {{title}} {{/city}}</span>
+               <span class="text-md-small text-white f500 lh-1  d-block location">{{if incall}} Incall {{/if}} {{if outcall}} / Outcall {{/if}}</span>
+               <span class="favourites d-flex justify-content-center align-items-center top-0 end-0 position-absolute">
+
+                  {{ if reviews | length > 0 }}
+        {{ total_rating = reviews | pluck:rating | sum }}
+        {{ total_items = reviews | length }}
+        {{ average_rating = (total_rating / total_items) | round:0 }}
+    {{ else }}
+        {{ average_rating = 0 }}
+    {{ /if }}
+
+                  {{loop times="{{average_rating}}"}}
+                  <i class="fa-star me-md-1"></i>
+                  {{/loop}}
+                  
+               </span>
+               </span>
+            </div>
+            {{/collection:profiles}}
+          
+         </div>
+      </div>
