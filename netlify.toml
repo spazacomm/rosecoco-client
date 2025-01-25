@@ -24,3 +24,9 @@
   for = "/sitemap.xml"
   [headers.values]
 	Content-Type = "application/xml"
+
+  for = "/*"
+    [headers.values]
+    Access-Control-Allow-Origin = "*"
+    Access-Control-Allow-Methods = "GET, POST, OPTIONS"
+    Access-Control-Allow-Headers = "Content-Type, Authorization"
