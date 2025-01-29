@@ -1,0 +1,29 @@
+tabs:
+  main:
+    display: Main
+    sections:
+      -
+        fields:
+          -
+            handle: logo
+            field:
+              max_files: 1
+              container: assets
+              type: assets
+              display: Logo
+              width: 50
+          -
+            handle: mobile_logo
+            field:
+              max_files: 1
+              container: assets
+              type: assets
+              display: 'Mobile Logo'
+              width: 50
+          -
+            handle: home_banner
+            field:
+              max_files: 1
+              container: assets
+              type: assets
+              display: 'Home Banner'
