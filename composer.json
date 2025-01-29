@@ -14,6 +14,7 @@
         "laravel/framework": "^11.31",
         "laravel/tinker": "^2.9",
         "statamic/cms": "^5.0",
+        "statamic/seo-pro": "^6.5",
         "statamic/ssg": "^3.1"
     },
     "require-dev": {
