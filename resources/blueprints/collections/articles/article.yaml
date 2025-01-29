@@ -20,6 +20,11 @@ tabs:
               type: assets
               display: 'featured image'
           -
+            handle: excerpt
+            field:
+              type: markdown
+              display: Excerpt
+          -
             handle: content
             field:
               type: markdown
@@ -52,3 +57,14 @@ tabs:
               type: slug
               localizable: true
               validate: 'max:200'
+  SEO:
+    display: SEO
+    sections:
+      -
+        fields:
+          -
+            handle: seo
+            field:
+              type: seo_pro
+              listable: false
+              display: SEO
