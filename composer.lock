@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a75c97e6c58276522bd982febbef3ef9",
+    "content-hash": "a9b0343c9d8bca4e1e815cecb0b9f2b1",
     "packages": [
         {
             "name": "ajthinking/archetype",
@@ -68,6 +68,72 @@
                 "source": "https://github.com/ajthinking/archetype/tree/v2.0.0"
             },
             "time": "2024-05-11T08:05:58+00:00"
+        },
+        {
+            "name": "aryehraber/statamic-splash",
+            "version": "v2.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/aryehraber/statamic-splash.git",
+                "reference": "2a66249f2b1d5c420c5931ce3963d21d2fb30b52"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/aryehraber/statamic-splash/zipball/2a66249f2b1d5c420c5931ce3963d21d2fb30b52",
+                "reference": "2a66249f2b1d5c420c5931ce3963d21d2fb30b52",
+                "shasum": ""
+            },
+            "require": {
+                "statamic/cms": "^4.0 || ^5.0"
+            },
+            "type": "statamic-addon",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "AryehRaber\\Splash\\SplashServiceProvider"
+                    ]
+                },
+                "statamic": {
+                    "name": "Splash",
+                    "slug": "splash",
+                    "description": "Browse Unsplash images right from the CP."
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "AryehRaber\\Splash\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Aryeh Raber",
+                    "email": "aryeh.raber@gmail.com",
+                    "homepage": "https://aryeh.dev",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Browse Unsplash images right from the CP.",
+            "homepage": "https://github.com/aryehraber/statamic-splash",
+            "keywords": [
+                "Unsplash",
+                "splash",
+                "statamic"
+            ],
+            "support": {
+                "issues": "https://github.com/aryehraber/statamic-splash/issues",
+                "source": "https://github.com/aryehraber/statamic-splash/tree/v2.2.0"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/aryehraber",
+                    "type": "github"
+                }
+            ],
+            "time": "2024-07-05T07:01:16+00:00"
         },
         {
             "name": "brick/math",

@@ -15,10 +15,8 @@ tabs:
           -
             handle: featured_image
             field:
-              max_files: 1
-              container: assets
-              type: assets
-              display: 'featured image'
+              type: splash
+              display: 'Featured Image'
           -
             handle: excerpt
             field:
