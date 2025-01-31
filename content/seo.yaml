@@ -5,5 +5,6 @@ site_name_position: before
 site_name_separator: '|'
 canonical_url: '@seo:permalink'
 image: false
+twitter_handle: '@_rosecoco'
 priority: 0.5
-change_frequency: monthly
+change_frequency: weekly

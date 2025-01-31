@@ -6,3 +6,14 @@
 @import "/public/assets/css/fancybox.css";
 @import "/public/assets/css/snapgram.min.css";
 @import "/public/assets/css/zuck.min.css";
+
+
+@layer components {
+  .btn {
+    @apply font-bold py-2 px-4 rounded inline-block;
+  }
+
+  .btn-primary {
+    @apply bg-pink-500 hover:bg-pink-600 text-white;
+  }
+}
