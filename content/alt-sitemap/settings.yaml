@@ -1,0 +1,49 @@
+default_collection_priorities:
+  -
+    id: m6l9epsx
+    collection: articles
+    priority: 1.0
+    type: collection_priority
+    enabled: true
+  -
+    id: m6l9ey57
+    collection: duos
+    priority: 0.5
+    type: collection_priority
+    enabled: true
+  -
+    id: m6l9f3qx
+    collection: faqs
+    priority: 0.8
+    type: collection_priority
+    enabled: true
+  -
+    id: m6l9fa75
+    collection: pages
+    priority: 1.0
+    type: collection_priority
+    enabled: true
+  -
+    id: m6l9ffex
+    collection: profiles
+    priority: 1.0
+    type: collection_priority
+    enabled: true
+exclude_collections_from_sitemap:
+  - stories
+default_taxonomy_priorities:
+  -
+    id: m6l9ftmx
+    taxonomy:
+      - categories
+      - city
+      - gender
+      - locations
+      - nationality
+      - orientation
+      - services
+      - tags
+    priority: 0.5
+    type: taxonomy_priority
+    enabled: true
+exclude_taxonomies_from_sitemap: null
