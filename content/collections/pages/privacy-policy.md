@@ -4,8 +4,9 @@ blueprint: page
 title: 'Privacy Policy'
 author: 5cf982c2-3f3d-452c-a442-19d8bc2bef2b
 updated_by: 5cf982c2-3f3d-452c-a442-19d8bc2bef2b
-updated_at: 1737354611
+updated_at: 1739289493
 template: page
+exclude_from_sitemap: false
 ---
 Rosecoco.co.ke (“Rosecoco,” “we,” “our,” or “us”) is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website and use our services.
 

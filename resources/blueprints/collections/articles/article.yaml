@@ -25,9 +25,9 @@ tabs:
           -
             handle: content
             field:
-              type: markdown
-              display: Content
-              localizable: true
+              remove_empty_nodes: false
+              type: bard
+              display: content
           -
             handle: author
             field:
@@ -36,13 +36,6 @@ tabs:
               default: current
               localizable: true
               max_items: 1
-              width: 50
-          -
-            handle: template
-            field:
-              type: template
-              display: Template
-              localizable: true
               width: 50
   sidebar:
     display: Sidebar
@@ -55,3 +48,35 @@ tabs:
               type: slug
               localizable: true
               validate: 'max:200'
+          -
+            handle: date
+            field:
+              type: date
+              required: true
+              default: now
+              validate:
+                - required
+          -
+            handle: tags
+            field:
+              type: terms
+              taxonomies:
+                - tags
+              display: Tags
+              mode: select
+  alt_sitemap:
+    display: 'Alt Sitemap'
+    sections:
+      -
+        fields:
+          -
+            handle: sitemap_priority
+            field:
+              type: float
+              display: 'Sitemap Priority'
+              instructions: 'From 0.0 (lowest priority) to 1.0 (highest priority)'
+          -
+            handle: exclude_from_sitemap
+            field:
+              type: toggle
+              display: 'Exclude from sitemap?'

@@ -4,8 +4,9 @@ blueprint: page
 title: 'Terms and Conditions'
 author: 5cf982c2-3f3d-452c-a442-19d8bc2bef2b
 updated_by: 5cf982c2-3f3d-452c-a442-19d8bc2bef2b
-updated_at: 1737354251
+updated_at: 1739289485
 template: page
+exclude_from_sitemap: false
 ---
 Welcome to Rosecoco.co.ke. By accessing or using our website, you agree to be bound by these Terms and Conditions. If you do not agree to these terms, please do not use our services.
 

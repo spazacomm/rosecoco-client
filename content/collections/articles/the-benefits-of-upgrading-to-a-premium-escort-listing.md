@@ -1,5 +1,6 @@
 ---
 id: a9ac8824-bfaf-4c6d-b0aa-9ce5b9108e7a
+published: false
 blueprint: article
 title: 'The Benefits of Upgrading to a Premium Escort Listing'
 excerpt: 'How premium listings improve visibility, bookings, and credibility.'
