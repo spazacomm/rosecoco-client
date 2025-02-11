@@ -1,5 +1,6 @@
 ---
 id: 26ec7768-1b7d-449d-8605-65172a5241e2
+published: false
 blueprint: profile
 title: Sasha
 profile_image: sasha.jpg

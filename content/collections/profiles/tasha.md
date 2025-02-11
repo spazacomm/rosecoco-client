@@ -1,5 +1,6 @@
 ---
 id: 01d94d6d-748f-4ed2-92d8-3fc251a5081e
+published: false
 blueprint: profile
 title: Tasha
 profile_image: tasha.jpg

@@ -1,5 +1,6 @@
 ---
 id: b96b24f8-391a-493f-9912-287115545f9c
+published: false
 blueprint: profile
 title: Katrina
 profile_image: katrina.jpg

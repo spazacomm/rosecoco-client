@@ -1,5 +1,6 @@
 ---
 id: 5d6f4417-660b-443f-8b6e-6c34c04d5d4b
+published: false
 blueprint: profile
 title: Kendy
 profile_image: kendy.jpg
