@@ -4,9 +4,11 @@ blueprint: pages
 title: Home
 template: home
 author: 5cf982c2-3f3d-452c-a442-19d8bc2bef2b
+seo_title: 'Premier Escort Directory in Kenya | Find & Book Escorts'
+seo_description: 'Discover Kenya’s top escort directory on Rosecoco. Find and connect with verified escorts, agencies, and massage parlors. Secure, discreet, and hassle-free.'
 exclude_from_sitemap: false
 updated_by: 5cf982c2-3f3d-452c-a442-19d8bc2bef2b
-updated_at: 1739285627
+updated_at: 1739294512
 ---
 ## Welcome to your brand new Statamic site!
 
