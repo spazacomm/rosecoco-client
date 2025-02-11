@@ -8,7 +8,6 @@ data:
   seo_sitemap_enabled: true
   seo_sitemap_priority: '0.5'
   seo_sitemap_change_frequency: daily
-  seo_title: '{{ title }}'
   seo_description: '{{ content }}'
   seo_json_ld:
     code: null
