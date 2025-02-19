@@ -1,4 +1,4 @@
-# Use the official PHP image with necessary extensions
+# Use the official PHP 8.2 FPM Alpine image
 FROM php:8.2-fpm-alpine
 
 # Set working directory
@@ -19,15 +19,18 @@ RUN apk add --no-cache \
     nodejs npm \
     supervisor
 
-# Install PHP extensions
+# Install PHP extensions (including exif)
 RUN docker-php-ext-configure gd --with-freetype --with-jpeg \
-    && docker-php-ext-install gd pdo pdo_mysql zip intl opcache
+    && docker-php-ext-install gd pdo pdo_mysql zip intl exif opcache
 
 # Install Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
 # Copy application files
 COPY . .
+
+# Fix Git ownership issue
+RUN git config --global --add safe.directory /var/www/html
 
 # Set permissions
 RUN chown -R www-data:www-data /var/www/html \
@@ -36,7 +39,7 @@ RUN chown -R www-data:www-data /var/www/html \
 # Install dependencies
 RUN composer install --no-dev --optimize-autoloader
 
-# Expose port
+# Expose PHP-FPM port
 EXPOSE 9000
 
 # Start PHP-FPM
